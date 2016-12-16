@@ -1,0 +1,54 @@
+#!/bin/bash
+
+  if [ $# -ne 1 ]
+  then
+    echo " "
+    echo "   Usage: `basename $0` {arg}"
+    echo "   Example: `basename $0` 2016051300 "
+    echo " "
+    exit 3
+  fi
+
+  set -x
+
+  export PATH=$PATH:/home/wave/bin
+
+# the 18Z data is not available until next day, so set the time back 12hrs
+# else just lop off the HH and add sysnoptic time
+
+# if [ $1 = 18 ]; then
+#   DTG=`date --utc --date="UTC -12 hours" +%Y%m%d`$1
+# else
+    DTG=$1
+# fi
+  echo $DTG
+
+  WND=$HOME/GFS/$DTG
+
+# check to see if ran already for this DTG
+# should be 129 uwd and 129 vwd grids
+
+  GS=`ls $WND/u* $WND/v* | wc -l`
+  if [ $GS -ge 258 ]; then
+    echo processing for $DTG already done
+    exit
+  fi
+
+  mkdir $WND
+  cd $WND
+
+# sync file from s3
+
+   aws s3 sync s3://ww3-controller/${DTG} $HOME/GFS/${DTG} --exclude "prs*"
+
+# clean up
+
+    find $HOME/GFS/20*/u* -mtime +1 -exec rm -f {} \;
+    find $HOME/GFS/20*/v* -mtime +1 -exec rm -f {} \;
+    find $HOME/GFS/20*/i* -mtime +1 -exec rm -f {} \;
+    find $HOME/GFS/20*/*.log -mtime +1 -exec rm -f {} \;
+    find $HOME/GFS/20*/*.grb2 -mtime +1 -exec rm -f {} \;
+    find $HOME/GFS/20*/*.done -mtime +1 -exec rm -f {} \;
+    rmdir $HOME/GFS/20*
+
+exit

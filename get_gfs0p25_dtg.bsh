@@ -1,0 +1,102 @@
+#!/bin/bash
+
+  if [ $# -ne 1 ]
+  then
+    echo " "
+    echo "   Usage: `basename $0` {arg}"
+    echo "   Example: get_winds_wnd_rt DTG "
+    echo " "
+    exit 3
+  fi
+
+  set -x
+
+# export PATH=$PATH:/home/wave/bin
+
+# SERV=gfslola
+# LOLA_WINDS=/ocean/lola_winds
+
+# AR=gfslola
+# FN=gfs0p25
+  NX=1440
+  NY=721
+  TAUE=384
+  WW3=$HOME/ww3
+  DTG=$1
+  echo $DTG
+  HR=${DTG:8:2}
+
+  WND=$HOME/GFS/$DTG
+# SHR=/ocean/earth/winds/${FN}
+  NCCF=http://www.ftp.ncep.noaa.gov/data/nccf/com/gfs/prod
+
+# check ot see if ran already for this DTG
+
+# if [ -f $WND/uwd${DTG}096 ]; then
+#   echo processing for $DTG already done
+#   exit
+# fi
+
+  mkdir $WND
+  cd $WND
+
+    for tau3 in {000..240..3} {252..384..12}
+    do
+      # Background a subshell for each, to parallelize the downloads
+      # and the extraction of the fields.  Also, log each's messages
+      # separately.
+      (
+      VARS=$'UGRD:10 m above ground\nVGRD:10 m above ground'
+      if [ $tau3 = 000 ]; then
+	  VARS+=$'\nICEC:surface'
+      fi
+
+      FILE="gfs.t${HR}z.pgrb2.0p25.f${tau3}.select.grb2"
+
+      get_inv.pl "${NCCF}/gfs.${DTG}/gfs.t${HR}z.pgrb2.0p25.f${tau3}.idx" \
+      | fgrep -e "$VARS" \
+      | get_grib.pl "${NCCF}/gfs.${DTG}/gfs.t${HR}z.pgrb2.0p25.f${tau3}" "$FILE"
+
+      if [ -f "$FILE" ]; then
+        RN=` wgrib2 "$FILE" | grep "UGRD:10 m above ground" | \
+             awk -F: '{print $1}'`
+        wgrib2 "$FILE" -d $RN -bin uwd${DTG}${tau3}
+        RN=` wgrib2 "$FILE" | grep "VGRD:10 m above ground" | \
+             awk -F: '{print $1}'`
+        wgrib2 "$FILE" -d $RN -bin vwd${DTG}${tau3}
+        if [ $tau3 = 000 ]; then
+          RN=` wgrib2 "$FILE" | grep "ICEC:surface" | \
+               awk -F: '{print $1}'`
+          wgrib2 "$FILE" -d $RN -bin ice${DTG}${tau3}
+        fi
+      fi
+      # rm "$FILE"
+
+      # This logs and backgrounds each subshell.
+      ) >& gfs.t${HR}z.pgrb2.0p25.f${tau3}.log  &
+    done
+    wait  # Wait for the backgrounded parallel subshells to all finish.
+
+#   $HOME/ww3/bin/flipgrids $DTG 0 $TAUE 3 $NX $NY
+
+#   $HOME/ww3/bin/time_intrp25 $DTG 240 $TAUE 12
+
+#   mkdir ${SHR}/${DTG}
+#   chmod 777 ${SHR}/${DTG}
+#   cp uwd* ${SHR}/${DTG}
+#   cp vwd* ${SHR}/${DTG}
+#   cp prs* ${SHR}/${DTG}
+
+#    rm /ocean/latest_gfs0p25
+#    ln -sf $SHR/$DTG /ocean/latest_gfs0p25
+#    chmod 777 /ocean/latest_gfs0p25
+
+
+#   rm UGRD* VGRD* PRMSL* ICEC* dump
+#   find /earthdisk5/winds/${FN}/20*/*wd* -mtime +2 -exec rm -f {} \;
+#   find /earthdisk5/winds/${FN}/20*/prs* -mtime +2 -exec rm -f {} \;
+#   find /earthdisk5/winds/${FN}/20*/ice* -mtime +2 -exec rm -f {} \;
+#   find ${SHR}/${DTG}/*wd* -mtime +1 -exec rm -f {} \;
+#   find ${SHR}/${DTG}/prs* -mtime +1 -exec rm -f {} \;
+
+exit

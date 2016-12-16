@@ -1,0 +1,426 @@
+#
+#  Script to kickoff ww3_multi ncep v4 the Wave Watch III model
+#  Wittmann   jun, 2016
+#
+
+   date
+   . ~/.bash_profile > /dev/null
+   set -x
+
+   EXE=$HOME/bin
+   WND=$HOME/GFS
+   AREA=${AREA:-ncep}
+   TAUE=`cat $HOME/Scripts/$AREA/taue`
+#  TAUE=${TAUE:-384}
+   COLD_START=${COLD_START:-NO}
+
+# define the nests
+
+   NEST1=g30
+#  NEST2=w10
+#  NEST3=a10
+#  NEST1=glb
+   NEST2=wna
+   NEST3=enp
+
+
+#  get the start times from  last run
+
+   DTGM6=`cat $HOME/Scripts/$AREA/lastrun`
+
+# increment last dtg by +6hrs
+
+   dt=`echo $DTGM6 | cut -c1-8`
+   hr=`echo $DTGM6 | cut -c9-10`
+   DTG=`date --utc --date="${dt} ${hr} UTC +6 hours" +%Y%m%d%H`
+   DTGP6=`date --utc --date="${dt} ${hr} UTC +12 hours" +%Y%m%d%H`
+   DTGP12=`date --utc --date="${dt} ${hr} UTC +18 hours" +%Y%m%d%H`
+   DTGP18=`date --utc --date="${dt} ${hr} UTC +24 hours" +%Y%m%d%H`
+   DTGP24=`date --utc --date="${dt} ${hr} UTC +30 hours" +%Y%m%d%H`
+   DTGP30=`date --utc --date="${dt} ${hr} UTC +36 hours" +%Y%m%d%H`
+
+# set up a temporary run directory
+
+   TMPDIR=$HOME/rundir/$AREA
+   if [ -d $TMPDIR ]; then
+    rm $TMPDIR/*
+   else
+     mkdir $TMPDIR
+   fi
+   cd $TMPDIR
+
+# process GFS 1/4 deg winds, 
+# model starts from -6 winds for data assimilation
+# check for full GFS data set, should be 186 U and V grids
+
+  GS=`ls $WND/${DTG}/u* $WND/${DTG}/v* | wc -l` > /dev/null
+  if [ $GS -ge 186 ]; then
+
+      cp $WND/${DTGM6}/uwd${DTGM6}000 .
+      cp $WND/${DTGM6}/vwd${DTGM6}000 .
+      cp $WND/${DTGM6}/ice${DTGM6}000 .
+      cp $WND/${DTGM6}/uwd${DTGM6}003 .
+      cp $WND/${DTGM6}/vwd${DTGM6}003 .
+  tau=0
+  taup6=6
+  ((TAUEP6=TAUE+6))
+  while(( tau <= $TAUEP6 ))
+  do
+      tau3=$(printf "%3.3d\n" $tau)
+      tau3p6=$(printf "%3.3d\n" $taup6)
+      echo $tau3
+        cp $WND/${DTG}/uwd${DTG}${tau3} uwd${DTGM6}${tau3p6}
+        cp $WND/${DTG}/vwd${DTG}${tau3} vwd${DTGM6}${tau3p6}
+      let tau=tau+3
+      let taup6=taup6+3
+  done
+  WDTG=$DTGM6
+
+  else
+
+      mail -s "GFS winds for $DTG missing" paul@surfline.com <<-EOF
+      from WW3-controller - AWS inland seas run
+      GFS winds for $DTG missing or incomplete
+      number of grids $GS
+EOF
+      exit 3
+
+  fi
+
+#  if taue > 390, fill in with zero wind grids ( propagation only )
+
+   if [ $TAUEP6 > 390 ]; then
+
+     $HOME/bin/zerogrids $DTGM6 396 $TAUEP6 6 1440 721
+
+   fi
+
+#  make wind file for ww3_prep
+
+   $EXE/wnd2prep_unf $WDTG 0 $TAUEP6 3 1440 721
+
+   rm uwd* vwd* > /dev/null
+
+# start up instance 
+
+   CLUSTER_START_TRIES=15
+   CLUSTER_START_SLEEP=$((10*60))
+   while true; do
+     run-cluster WW3_development \
+        && break
+   ((CLUSTER_START_TRIES=CLUSTER_START_TRIES-1))
+     if ((CLUSTER_START_TRIES > 0)); then
+       sleep $CLUSTER_START_SLEEP
+     else
+      echo All run-cluster attemps failed
+      exit 3
+     fi
+   done
+
+   ssh-node WW3_development 1  "cd ~; mkdir /tmp/space/rundir"
+
+   scp-to-node WW3_development 1  $HOME/Scripts/$AREA/lastrun  /tmp/space/rundir
+
+   scp-to-node WW3_development 1  $HOME/Scripts/$AREA/taue /tmp/space/rundir
+
+   scp-to-node WW3_development 1  $HOME/rundir/$AREA/wind_unform.ww3 /tmp/space/rundir
+
+   scp-to-node WW3_development 1  $HOME/rundir/$AREA/ice_unform.ww3 /tmp/space/rundir
+
+# kickoff model
+
+   ssh-node WW3_development 1 "/home/ec2-user/Scripts/ww34_multi_ncep-s5.bsh"
+
+# bring back Jfiles and grads files
+
+ echo " start file transter "
+ date
+   for NEST in $NEST1 $NEST2 $NEST3 $NEST4 $NEST5 $NEST6 $NEST7
+   do
+     scp-from-node WW3_development 1  /tmp/space/rundir/${DTG}/J${DTG}*${NEST} .
+     scp-from-node WW3_development 1  /tmp/space/rundir/${DTG}/ww3_grads.${NEST} .
+     scp-from-node WW3_development 1  /tmp/space/rundir/${DTG}/ww3_ctl.${NEST} .
+     scp-from-node WW3_development 1  /tmp/space/rundir/${DTG}/hs${DTG}*${NEST}.dat .
+   done
+  echo  " finish file transfer "
+  date
+
+# stop instance
+
+   stop-cluster WW3_development
+
+# if successful run then update lastrun date-time
+
+#  if [ -f J${DTG}_24_${NEST1} ]; then
+     echo $DTG > $HOME/Scripts/$AREA/lastrun 
+#  else
+#    echo Script failed
+
+#    mail -s "$AREA WW3 for $DTG failed" paul@surfline.com <<-EOF
+#    from WW3-controller - AWS $AREA run
+#    failed for $DTG 
+#OF
+
+#    exit 3
+#  fi
+
+############ stop here for testing #############
+#exit
+################################################
+
+# rename the Jfiles and copy to shared disk
+
+   for NEST in $NEST1 $NEST2 $NEST3  # nestloop
+   do
+
+   ZNEST=${NEST:0:2}z
+
+# make new remote Jfile dir
+
+   rm /ocean/aws/Jfiles/${ZNEST}${DTGM6}/J*
+   rmdir /ocean/aws/Jfiles/${ZNEST}${DTGM6}
+   mkdir /ocean/aws/Jfiles/${ZNEST}${DTG}
+
+   typeset -i FN
+   FN=6
+#  (( TAUEM6=TAUE-6 ))
+   while (($FN <= $TAUE))
+   do
+     cp J${DTG}_${FN}_${NEST} /ocean/aws/Jfiles/${ZNEST}${DTG}/J${DTG}_${FN}
+     echo J${DTG}_${FN}
+     cp hs${DTG}_${FN}_${NEST}.dat /ocean/aws/hs_files/${ZNEST}/hs${DTG}_${FN}.dat
+     rm J${DTG}_${FN}_${NEST}  hs${DTG}_${FN}_${NEST}.dat
+     (( FN=FN+6 ))
+   done
+
+# update Jfile link
+
+     rm /ocean/latest_${ZNEST}
+     ln -sf /ocean/aws/Jfiles/${ZNEST}${DTG} /ocean/latest_${ZNEST}
+     chmod 777 /ocean/latest_${ZNEST}
+
+# copy over grads files
+
+     sed -i 's/ww3.grads/^ww3.grads/g' ww3_ctl.${NEST}
+     sed -i '/big_endian/d'   ww3_ctl.${NEST}
+     sed -i 's/sequential/sequential big_endian/g'  ww3_ctl.${NEST}
+ 
+     cp ww3_grads.${NEST} /ocean/aws/grads/${ZNEST}/ww3.grads
+     cp ww3_ctl.${NEST} /ocean/aws/grads/${ZNEST}/ww3.ctl
+
+     cat ww3_ctl.${NEST}
+
+# create grads charts of Hs/wind Tp/Dm
+
+ case $NEST in
+ g30)
+  X=720; Y=361; LON=0; LAT=-90; DX=1; DY=1; TTL=Global;;
+ w10)
+  X=241; Y=151; LON=-150.0; LAT=25.0; DX=.1667; DY=.1667; TTL=W10;;
+ a10)
+  X=373; Y=224; LON=-100.; LAT=0.0; DX=.1667; DY=.1667; TTL=ENP;;
+ esac
+
+  TAUINC=12
+  ((TE=TAUE/TAUINC+1))
+  echo TE $TE
+  ((SKIP=TAUINC/3))
+
+# build grads script
+
+   cat << EOF > ww3.gs
+*
+*  grads script to plot WW3 fields
+*
+  'open ww3_ctl.${NEST}'
+*
+*  Set color levels and indices for shading
+*
+  meters="[m]"
+  feet="[ft]"
+  knots="[knots]"
+*
+* loop over output times
+*
+t=1
+te=$TE
+while(t<=te)
+  'c'
+  'set dfile 1'
+  'set t 't
+  'q time'
+  vtime=subwrd(result,3)
+  tau=(t-1)*$TAUINC
+  colndx='.5 1 1.5 2 2.5 3 3.5 4 5 6 7 8 10'
+  'set map 1 1 3'
+  'set gxout shaded'
+  'set clevs 'colndx
+  'd hs'
+
+  'run cbarn'
+  'basemap L 87'
+
+  'set gxout barb'
+  'set ccolor 1'
+  skp=5
+  'd skip(uwnd,'skp','skp');vwnd*1.94'
+  'draw title '$TTL' 'Wave' 'Heights' 'meters' 'and' 'Surface' 'Winds' 'knots'\ 'tau' 'Hr' 'Forecast' 'from' '$DTG' 'Valid' 'vtime
+*
+*  for hard copy output
+*
+  pfn='${NEST}_wnd_'tau'.gif'
+  'printim 'pfn' x700 y550 white'
+*
+* plot peak period
+*
+  'c'
+  'set gxout shaded'
+  colndx='5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20'
+  'set clevs 'colndx
+* 'set ccols 'colevs
+  'd t01'
+
+  'run cbarn'
+  'basemap L 87'
+
+  'set gxout vector'
+  'set cthick 3'
+  'set ccolor 1'
+  'set arrscl 0.15'
+  'define wamv=-cos(dp)*t01'
+  'define wamu=-sin(dp)*t01'
+  'define umsk = maskout(wamu,hs-0.1)'
+  skp=5
+  'd skip(umsk,'skp','skp');wamv'
+  'undefine wamu'
+  'undefine wamv'
+  'undefine umsk'
+
+  'draw title '$TTL' 'Wave' 'Period' 'sec' 'and' 'Direction'\'tau' 'Hr' 'Forecast' 'from' '$DTG' 'Valid' 'vtime
+*
+*  for hard copy output
+*
+  pfn='${NEST}_per_'tau'.gif'
+  'printim 'pfn' x700 y550 white'
+t=t+1
+endwhile
+'quit'
+EOF
+
+cat ww3.gs
+
+# run grads in batch mode
+
+export GADDIR=$HOME/lib
+
+cp ww3_grads.${NEST} ww3.grads 
+cp $GADDIR/cbarn.gs .
+cp $GADDIR/basemap.gs .
+cp $GADDIR/lpoly_lowres.asc .
+
+grads -lbc "run ww3.gs" -g 900x600+0
+
+
+# build html page for zen
+
+SYSDTG=`date`
+
+cat > ${NEST}.html <<-EOF
+<title> AWS Run </title>
+<strong> WW3 Version 3.14 AWS Run for $DTG </strong><br><br>
+Updated at $SYSDTG <br>
+<ul>
+<br><strong> $TTL AWS run </strong><br><br>
+Wave Height and Wind Speed <br>
+<A HREF="${NEST}_wnd_${DTG}_t00.gif"> T00 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t12.gif"> T12 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t24.gif"> T24 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t36.gif"> T36 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t48.gif"> T48 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t60.gif"> T60 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t72.gif"> T72 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t84.gif"> T84 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t96.gif"> T96 </A> - 
+<A HREF="${NEST}_wnd_${DTG}_t108.gif"> T108 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t120.gif"> T120 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t132.gif"> T132 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t144.gif"> T144 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t156.gif"> T156 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t168.gif"> T168 </A> -
+<A HREF="${NEST}_wnd_${DTG}_t180.gif"> T180 </A> - <BR><BR>
+Wave Period and Direction <br>
+<A HREF="${NEST}_per_${DTG}_t00.gif"> T00 </A> -
+<A HREF="${NEST}_per_${DTG}_t12.gif"> T12 </A> -
+<A HREF="${NEST}_per_${DTG}_t24.gif"> T24 </A> -
+<A HREF="${NEST}_per_${DTG}_t36.gif"> T36 </A> -
+<A HREF="${NEST}_per_${DTG}_t48.gif"> T48 </A> -
+<A HREF="${NEST}_per_${DTG}_t60.gif"> T60 </A> -
+<A HREF="${NEST}_per_${DTG}_t72.gif"> T72 </A> -
+<A HREF="${NEST}_per_${DTG}_t84.gif"> T84 </A> -
+<A HREF="${NEST}_per_${DTG}_t96.gif"> T96 </A> - 
+<A HREF="${NEST}_per_${DTG}_t108.gif"> T108 </A> -
+<A HREF="${NEST}_per_${DTG}_t120.gif"> T120 </A> -
+<A HREF="${NEST}_per_${DTG}_t132.gif"> T132 </A> -
+<A HREF="${NEST}_per_${DTG}_t144.gif"> T144 </A> -
+<A HREF="${NEST}_per_${DTG}_t156.gif"> T156 </A> -
+<A HREF="${NEST}_per_${DTG}_t168.gif"> T168 </A> -
+<A HREF="${NEST}_per_${DTG}_t180.gif"> T180 </A> - <BR><BR>
+EOF
+
+# transfer images and html to zen
+
+ cp ${NEST}.html /ocean/transfer/ww3_ncep/${NEST}
+
+#sftp wave@192.168.147.37 <<-EOF
+#cd /home/httpd/html/ww3_aws/${NEST}
+#rm ${NEST}_*.gif
+#put ${NEST}.html
+rm /ocean/transfer/ww3_ncep/${NEST}/${NEST}_*.gif
+cp ${NEST}_wnd_0.gif /ocean/transfer/ww3_ncep/${NEST}/${NEST}_wnd_${DTG}_t00.gif
+cp ${NEST}_per_0.gif /ocean/transfer/ww3_ncep/${NEST}/${NEST}_per_${DTG}_t00.gif
+for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+  do
+   cp ${NEST}_wnd_${T}.gif /ocean/transfer/ww3_ncep/${NEST}/${NEST}_wnd_${DTG}_t${T}.gif
+   cp ${NEST}_per_${T}.gif /ocean/transfer/ww3_ncep/${NEST}/${NEST}_per_${DTG}_t${T}.gif
+  done
+#put ${NEST}_wnd_12.gif ${NEST}_wnd_${DTG}_t12.gif
+#put ${NEST}_wnd_24.gif ${NEST}_wnd_${DTG}_t24.gif
+#put ${NEST}_wnd_36.gif ${NEST}_wnd_${DTG}_t36.gif
+#put ${NEST}_wnd_48.gif ${NEST}_wnd_${DTG}_t48.gif
+#put ${NEST}_wnd_60.gif ${NEST}_wnd_${DTG}_t60.gif
+#put ${NEST}_wnd_72.gif ${NEST}_wnd_${DTG}_t72.gif
+#put ${NEST}_wnd_84.gif ${NEST}_wnd_${DTG}_t84.gif
+#put ${NEST}_wnd_96.gif ${NEST}_wnd_${DTG}_t96.gif
+#put ${NEST}_wnd_108.gif ${NEST}_wnd_${DTG}_t108.gif
+#put ${NEST}_wnd_120.gif ${NEST}_wnd_${DTG}_t120.gif
+#put ${NEST}_wnd_132.gif ${NEST}_wnd_${DTG}_t132.gif
+#put ${NEST}_wnd_144.gif ${NEST}_wnd_${DTG}_t144.gif
+#put ${NEST}_wnd_156.gif ${NEST}_wnd_${DTG}_t156.gif
+#put ${NEST}_wnd_168.gif ${NEST}_wnd_${DTG}_t168.gif
+#put ${NEST}_wnd_180.gif ${NEST}_wnd_${DTG}_t180.gif
+#put ${NEST}_per_0.gif ${NEST}_per_${DTG}_t00.gif
+#put ${NEST}_per_12.gif ${NEST}_per_${DTG}_t12.gif
+#put ${NEST}_per_24.gif ${NEST}_per_${DTG}_t24.gif
+#put ${NEST}_per_36.gif ${NEST}_per_${DTG}_t36.gif
+#put ${NEST}_per_48.gif ${NEST}_per_${DTG}_t48.gif
+#put ${NEST}_per_60.gif ${NEST}_per_${DTG}_t60.gif
+#put ${NEST}_per_72.gif ${NEST}_per_${DTG}_t72.gif
+#put ${NEST}_per_84.gif ${NEST}_per_${DTG}_t84.gif
+#put ${NEST}_per_96.gif ${NEST}_per_${DTG}_t96.gif
+#put ${NEST}_per_108.gif ${NEST}_per_${DTG}_t108.gif
+#put ${NEST}_per_120.gif ${NEST}_per_${DTG}_t120.gif
+#put ${NEST}_per_132.gif ${NEST}_per_${DTG}_t132.gif
+#put ${NEST}_per_144.gif ${NEST}_per_${DTG}_t144.gif
+#put ${NEST}_per_156.gif ${NEST}_per_${DTG}_t156.gif
+#put ${NEST}_per_168.gif ${NEST}_per_${DTG}_t168.gif
+#put ${NEST}_per_180.gif ${NEST}_per_${DTG}_t180.gif
+#quit
+#EOF
+
+  done # nestloop
+
+rm wind*  *.html J* ice* *.gif *.asc > /dev/null
+
+exit
+
+

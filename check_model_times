@@ -1,0 +1,71 @@
+#!/bin/bash
+
+   set -x
+
+   echo ""
+   echo WW3 model status for `date`
+   echo ""
+
+   IM[1]=0
+   IM[2]=31
+   IM[3]=59
+   IM[4]=90
+   IM[5]=120
+   IM[6]=151
+   IM[7]=181
+   IM[8]=212
+   IM[9]=243
+   IM[10]=273
+   IM[11]=304
+   IM[12]=335
+   MODEL[1]=Global_multigrid
+   MODEL[2]=Inland_Seas_multigrid
+   MD[1]=global
+   MD[2]=seas
+
+   typeset i MYR MMO MDY MHR TYR TMO TDY THR DYR DMO DDY DHR
+
+  for I in 1 2 
+    do
+    MYR=$(cat $HOME/Scripts/${MD[I]}/lastrun | cut -c 1-4)
+    MMO=$(cat $HOME/Scripts/${MD[I]}/lastrun | cut -c 5-6)
+    MDY=$(cat $HOME/Scripts/${MD[I]}/lastrun | cut -c 7-8)
+    MHR=$(cat $HOME/Scripts/${MD[I]}/lastrun | cut -c 9-10)
+
+     echo $MYR $MMO $MDY $MHR
+    TYR=$(date +%Y)
+    TMO=$(date +%m)
+    TDY=$(date +%d)
+    THR=$(date +%k)
+
+    echo $TYR $TMO $TDY $THR
+
+    ((DYR=TYR-MYR))
+    ((DMO=IM[TMO]-IM[MMO]))
+    ((DDY=TDY-MDY+DMO))
+    ((DHR=THR-MHR))
+
+    echo $DYR $DMO $DDY $DHR
+
+    typeset i DIFF
+    ((DIFF=DDY*24+DHR))
+    echo The last run for ${MODEL[I]} was $DIFF hours ago
+
+    if [[ $DYR = 0 ]]; then
+      if [[ $DMO = 0 ]]; then
+        if (( $DIFF > 18 )); then
+#mail -s "${MODEL[I]} is behind $DIFF hours" paul@surfline.com -c paul.surfline@gmail.com -- -r"support@surfline.com" <<-EOF
+         mail -s "${MODEL[I]} is behind $DIFF hours" paul@surfline.com " <<-EOF
+         time difference $DIFF hours for E3 ${MODEL[I]} is $DIFF hours
+EOF
+        echo "earth3 ${MODEL[I]} is behind $DIFF hours"
+        echo ${MODEL[I]}
+
+
+        fi
+      fi
+    fi
+
+    echo ""
+
+  done

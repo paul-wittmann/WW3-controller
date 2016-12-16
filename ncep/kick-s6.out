@@ -1,0 +1,3025 @@
+Mon Nov 14 05:02:17 UTC 2016
+++ EXE=/home/wave/bin
+++ WND=/home/wave/GFS
+++ AREA=ncep
++++ cat /home/wave/Scripts/ncep/taue
+++ TAUE=24
+++ COLD_START=NO
+++ NEST1=g30
+++ NEST2=wna
+++ NEST3=enp
++++ cat /home/wave/Scripts/ncep/lastrun
+++ DTGM6=2016111206
++++ echo 2016111206
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111206
++++ cut -c9-10
+++ hr=06
++++ date --utc '--date=20161112 06 UTC +6 hours' +%Y%m%d%H
+++ DTG=2016111212
++++ date --utc '--date=20161112 06 UTC +12 hours' +%Y%m%d%H
+++ DTGP6=2016111218
++++ date --utc '--date=20161112 06 UTC +18 hours' +%Y%m%d%H
+++ DTGP12=2016111300
++++ date --utc '--date=20161112 06 UTC +24 hours' +%Y%m%d%H
+++ DTGP18=2016111306
++++ date --utc '--date=20161112 06 UTC +30 hours' +%Y%m%d%H
+++ DTGP24=2016111312
++++ date --utc '--date=20161112 06 UTC +36 hours' +%Y%m%d%H
+++ DTGP30=2016111318
+++ TMPDIR=/home/wave/rundir/ncep
+++ '[' -d /home/wave/rundir/ncep ']'
+++ rm /home/wave/rundir/ncep/390 /home/wave/rundir/ncep/basemap.gs /home/wave/rundir/ncep/cbarn.gs /home/wave/rundir/ncep/ww3.gs
+++ cd /home/wave/rundir/ncep
++++ wc -l
++++ ls /home/wave/GFS/2016111212/uwd2016111212000 /home/wave/GFS/2016111212/uwd2016111212003 /home/wave/GFS/2016111212/uwd2016111212006 /home/wave/GFS/2016111212/uwd2016111212009 /home/wave/GFS/2016111212/uwd2016111212012 /home/wave/GFS/2016111212/uwd2016111212015 /home/wave/GFS/2016111212/uwd2016111212018 /home/wave/GFS/2016111212/uwd2016111212021 /home/wave/GFS/2016111212/uwd2016111212024 /home/wave/GFS/2016111212/uwd2016111212027 /home/wave/GFS/2016111212/uwd2016111212030 /home/wave/GFS/2016111212/uwd2016111212033 /home/wave/GFS/2016111212/uwd2016111212036 /home/wave/GFS/2016111212/uwd2016111212039 /home/wave/GFS/2016111212/uwd2016111212042 /home/wave/GFS/2016111212/uwd2016111212045 /home/wave/GFS/2016111212/uwd2016111212048 /home/wave/GFS/2016111212/uwd2016111212051 /home/wave/GFS/2016111212/uwd2016111212054 /home/wave/GFS/2016111212/uwd2016111212057 /home/wave/GFS/2016111212/uwd2016111212060 /home/wave/GFS/2016111212/uwd2016111212063 /home/wave/GFS/2016111212/uwd2016111212066 /home/wave/GFS/2016111212/uwd2016111212069 /home/wave/GFS/2016111212/uwd2016111212072 /home/wave/GFS/2016111212/uwd2016111212075 /home/wave/GFS/2016111212/uwd2016111212078 /home/wave/GFS/2016111212/uwd2016111212081 /home/wave/GFS/2016111212/uwd2016111212084 /home/wave/GFS/2016111212/uwd2016111212087 /home/wave/GFS/2016111212/uwd2016111212090 /home/wave/GFS/2016111212/uwd2016111212093 /home/wave/GFS/2016111212/uwd2016111212096 /home/wave/GFS/2016111212/uwd2016111212099 /home/wave/GFS/2016111212/uwd2016111212102 /home/wave/GFS/2016111212/uwd2016111212105 /home/wave/GFS/2016111212/uwd2016111212108 /home/wave/GFS/2016111212/uwd2016111212111 /home/wave/GFS/2016111212/uwd2016111212114 /home/wave/GFS/2016111212/uwd2016111212117 /home/wave/GFS/2016111212/uwd2016111212120 /home/wave/GFS/2016111212/uwd2016111212123 /home/wave/GFS/2016111212/uwd2016111212126 /home/wave/GFS/2016111212/uwd2016111212129 /home/wave/GFS/2016111212/uwd2016111212132 /home/wave/GFS/2016111212/uwd2016111212135 /home/wave/GFS/2016111212/uwd2016111212138 /home/wave/GFS/2016111212/uwd2016111212141 /home/wave/GFS/2016111212/uwd2016111212144 /home/wave/GFS/2016111212/uwd2016111212147 /home/wave/GFS/2016111212/uwd2016111212150 /home/wave/GFS/2016111212/uwd2016111212153 /home/wave/GFS/2016111212/uwd2016111212156 /home/wave/GFS/2016111212/uwd2016111212159 /home/wave/GFS/2016111212/uwd2016111212162 /home/wave/GFS/2016111212/uwd2016111212165 /home/wave/GFS/2016111212/uwd2016111212168 /home/wave/GFS/2016111212/uwd2016111212171 /home/wave/GFS/2016111212/uwd2016111212174 /home/wave/GFS/2016111212/uwd2016111212177 /home/wave/GFS/2016111212/uwd2016111212180 /home/wave/GFS/2016111212/uwd2016111212183 /home/wave/GFS/2016111212/uwd2016111212186 /home/wave/GFS/2016111212/uwd2016111212189 /home/wave/GFS/2016111212/uwd2016111212192 /home/wave/GFS/2016111212/uwd2016111212195 /home/wave/GFS/2016111212/uwd2016111212198 /home/wave/GFS/2016111212/uwd2016111212201 /home/wave/GFS/2016111212/uwd2016111212204 /home/wave/GFS/2016111212/uwd2016111212207 /home/wave/GFS/2016111212/uwd2016111212210 /home/wave/GFS/2016111212/uwd2016111212213 /home/wave/GFS/2016111212/uwd2016111212216 /home/wave/GFS/2016111212/uwd2016111212219 /home/wave/GFS/2016111212/uwd2016111212222 /home/wave/GFS/2016111212/uwd2016111212225 /home/wave/GFS/2016111212/uwd2016111212228 /home/wave/GFS/2016111212/uwd2016111212231 /home/wave/GFS/2016111212/uwd2016111212234 /home/wave/GFS/2016111212/uwd2016111212237 /home/wave/GFS/2016111212/uwd2016111212240 /home/wave/GFS/2016111212/uwd2016111212243 /home/wave/GFS/2016111212/uwd2016111212246 /home/wave/GFS/2016111212/uwd2016111212249 /home/wave/GFS/2016111212/uwd2016111212252 /home/wave/GFS/2016111212/uwd2016111212255 /home/wave/GFS/2016111212/uwd2016111212258 /home/wave/GFS/2016111212/uwd2016111212261 /home/wave/GFS/2016111212/uwd2016111212264 /home/wave/GFS/2016111212/uwd2016111212267 /home/wave/GFS/2016111212/uwd2016111212270 /home/wave/GFS/2016111212/uwd2016111212273 /home/wave/GFS/2016111212/uwd2016111212276 /home/wave/GFS/2016111212/uwd2016111212279 /home/wave/GFS/2016111212/uwd2016111212282 /home/wave/GFS/2016111212/uwd2016111212285 /home/wave/GFS/2016111212/uwd2016111212288 /home/wave/GFS/2016111212/uwd2016111212291 /home/wave/GFS/2016111212/uwd2016111212294 /home/wave/GFS/2016111212/uwd2016111212297 /home/wave/GFS/2016111212/uwd2016111212300 /home/wave/GFS/2016111212/uwd2016111212303 /home/wave/GFS/2016111212/uwd2016111212306 /home/wave/GFS/2016111212/uwd2016111212309 /home/wave/GFS/2016111212/uwd2016111212312 /home/wave/GFS/2016111212/uwd2016111212315 /home/wave/GFS/2016111212/uwd2016111212318 /home/wave/GFS/2016111212/uwd2016111212321 /home/wave/GFS/2016111212/uwd2016111212324 /home/wave/GFS/2016111212/uwd2016111212327 /home/wave/GFS/2016111212/uwd2016111212330 /home/wave/GFS/2016111212/uwd2016111212333 /home/wave/GFS/2016111212/uwd2016111212336 /home/wave/GFS/2016111212/uwd2016111212339 /home/wave/GFS/2016111212/uwd2016111212342 /home/wave/GFS/2016111212/uwd2016111212345 /home/wave/GFS/2016111212/uwd2016111212348 /home/wave/GFS/2016111212/uwd2016111212351 /home/wave/GFS/2016111212/uwd2016111212354 /home/wave/GFS/2016111212/uwd2016111212357 /home/wave/GFS/2016111212/uwd2016111212360 /home/wave/GFS/2016111212/uwd2016111212363 /home/wave/GFS/2016111212/uwd2016111212366 /home/wave/GFS/2016111212/uwd2016111212369 /home/wave/GFS/2016111212/uwd2016111212372 /home/wave/GFS/2016111212/uwd2016111212375 /home/wave/GFS/2016111212/uwd2016111212378 /home/wave/GFS/2016111212/uwd2016111212381 /home/wave/GFS/2016111212/uwd2016111212384 /home/wave/GFS/2016111212/vwd2016111212000 /home/wave/GFS/2016111212/vwd2016111212003 /home/wave/GFS/2016111212/vwd2016111212006 /home/wave/GFS/2016111212/vwd2016111212009 /home/wave/GFS/2016111212/vwd2016111212012 /home/wave/GFS/2016111212/vwd2016111212015 /home/wave/GFS/2016111212/vwd2016111212018 /home/wave/GFS/2016111212/vwd2016111212021 /home/wave/GFS/2016111212/vwd2016111212024 /home/wave/GFS/2016111212/vwd2016111212027 /home/wave/GFS/2016111212/vwd2016111212030 /home/wave/GFS/2016111212/vwd2016111212033 /home/wave/GFS/2016111212/vwd2016111212036 /home/wave/GFS/2016111212/vwd2016111212039 /home/wave/GFS/2016111212/vwd2016111212042 /home/wave/GFS/2016111212/vwd2016111212045 /home/wave/GFS/2016111212/vwd2016111212048 /home/wave/GFS/2016111212/vwd2016111212051 /home/wave/GFS/2016111212/vwd2016111212054 /home/wave/GFS/2016111212/vwd2016111212057 /home/wave/GFS/2016111212/vwd2016111212060 /home/wave/GFS/2016111212/vwd2016111212063 /home/wave/GFS/2016111212/vwd2016111212066 /home/wave/GFS/2016111212/vwd2016111212069 /home/wave/GFS/2016111212/vwd2016111212072 /home/wave/GFS/2016111212/vwd2016111212075 /home/wave/GFS/2016111212/vwd2016111212078 /home/wave/GFS/2016111212/vwd2016111212081 /home/wave/GFS/2016111212/vwd2016111212084 /home/wave/GFS/2016111212/vwd2016111212087 /home/wave/GFS/2016111212/vwd2016111212090 /home/wave/GFS/2016111212/vwd2016111212093 /home/wave/GFS/2016111212/vwd2016111212096 /home/wave/GFS/2016111212/vwd2016111212099 /home/wave/GFS/2016111212/vwd2016111212102 /home/wave/GFS/2016111212/vwd2016111212105 /home/wave/GFS/2016111212/vwd2016111212108 /home/wave/GFS/2016111212/vwd2016111212111 /home/wave/GFS/2016111212/vwd2016111212114 /home/wave/GFS/2016111212/vwd2016111212117 /home/wave/GFS/2016111212/vwd2016111212120 /home/wave/GFS/2016111212/vwd2016111212123 /home/wave/GFS/2016111212/vwd2016111212126 /home/wave/GFS/2016111212/vwd2016111212129 /home/wave/GFS/2016111212/vwd2016111212132 /home/wave/GFS/2016111212/vwd2016111212135 /home/wave/GFS/2016111212/vwd2016111212138 /home/wave/GFS/2016111212/vwd2016111212141 /home/wave/GFS/2016111212/vwd2016111212144 /home/wave/GFS/2016111212/vwd2016111212147 /home/wave/GFS/2016111212/vwd2016111212150 /home/wave/GFS/2016111212/vwd2016111212153 /home/wave/GFS/2016111212/vwd2016111212156 /home/wave/GFS/2016111212/vwd2016111212159 /home/wave/GFS/2016111212/vwd2016111212162 /home/wave/GFS/2016111212/vwd2016111212165 /home/wave/GFS/2016111212/vwd2016111212168 /home/wave/GFS/2016111212/vwd2016111212171 /home/wave/GFS/2016111212/vwd2016111212174 /home/wave/GFS/2016111212/vwd2016111212177 /home/wave/GFS/2016111212/vwd2016111212180 /home/wave/GFS/2016111212/vwd2016111212183 /home/wave/GFS/2016111212/vwd2016111212186 /home/wave/GFS/2016111212/vwd2016111212189 /home/wave/GFS/2016111212/vwd2016111212192 /home/wave/GFS/2016111212/vwd2016111212195 /home/wave/GFS/2016111212/vwd2016111212198 /home/wave/GFS/2016111212/vwd2016111212201 /home/wave/GFS/2016111212/vwd2016111212204 /home/wave/GFS/2016111212/vwd2016111212207 /home/wave/GFS/2016111212/vwd2016111212210 /home/wave/GFS/2016111212/vwd2016111212213 /home/wave/GFS/2016111212/vwd2016111212216 /home/wave/GFS/2016111212/vwd2016111212219 /home/wave/GFS/2016111212/vwd2016111212222 /home/wave/GFS/2016111212/vwd2016111212225 /home/wave/GFS/2016111212/vwd2016111212228 /home/wave/GFS/2016111212/vwd2016111212231 /home/wave/GFS/2016111212/vwd2016111212234 /home/wave/GFS/2016111212/vwd2016111212237 /home/wave/GFS/2016111212/vwd2016111212240 /home/wave/GFS/2016111212/vwd2016111212243 /home/wave/GFS/2016111212/vwd2016111212246 /home/wave/GFS/2016111212/vwd2016111212249 /home/wave/GFS/2016111212/vwd2016111212252 /home/wave/GFS/2016111212/vwd2016111212255 /home/wave/GFS/2016111212/vwd2016111212258 /home/wave/GFS/2016111212/vwd2016111212261 /home/wave/GFS/2016111212/vwd2016111212264 /home/wave/GFS/2016111212/vwd2016111212267 /home/wave/GFS/2016111212/vwd2016111212270 /home/wave/GFS/2016111212/vwd2016111212273 /home/wave/GFS/2016111212/vwd2016111212276 /home/wave/GFS/2016111212/vwd2016111212279 /home/wave/GFS/2016111212/vwd2016111212282 /home/wave/GFS/2016111212/vwd2016111212285 /home/wave/GFS/2016111212/vwd2016111212288 /home/wave/GFS/2016111212/vwd2016111212291 /home/wave/GFS/2016111212/vwd2016111212294 /home/wave/GFS/2016111212/vwd2016111212297 /home/wave/GFS/2016111212/vwd2016111212300 /home/wave/GFS/2016111212/vwd2016111212303 /home/wave/GFS/2016111212/vwd2016111212306 /home/wave/GFS/2016111212/vwd2016111212309 /home/wave/GFS/2016111212/vwd2016111212312 /home/wave/GFS/2016111212/vwd2016111212315 /home/wave/GFS/2016111212/vwd2016111212318 /home/wave/GFS/2016111212/vwd2016111212321 /home/wave/GFS/2016111212/vwd2016111212324 /home/wave/GFS/2016111212/vwd2016111212327 /home/wave/GFS/2016111212/vwd2016111212330 /home/wave/GFS/2016111212/vwd2016111212333 /home/wave/GFS/2016111212/vwd2016111212336 /home/wave/GFS/2016111212/vwd2016111212339 /home/wave/GFS/2016111212/vwd2016111212342 /home/wave/GFS/2016111212/vwd2016111212345 /home/wave/GFS/2016111212/vwd2016111212348 /home/wave/GFS/2016111212/vwd2016111212351 /home/wave/GFS/2016111212/vwd2016111212354 /home/wave/GFS/2016111212/vwd2016111212357 /home/wave/GFS/2016111212/vwd2016111212360 /home/wave/GFS/2016111212/vwd2016111212363 /home/wave/GFS/2016111212/vwd2016111212366 /home/wave/GFS/2016111212/vwd2016111212369 /home/wave/GFS/2016111212/vwd2016111212372 /home/wave/GFS/2016111212/vwd2016111212375 /home/wave/GFS/2016111212/vwd2016111212378 /home/wave/GFS/2016111212/vwd2016111212381 /home/wave/GFS/2016111212/vwd2016111212384
+++ GS=258
+++ '[' 258 -ge 186 ']'
+++ cp /home/wave/GFS/2016111206/uwd2016111206000 .
+++ cp /home/wave/GFS/2016111206/vwd2016111206000 .
+++ cp /home/wave/GFS/2016111206/ice2016111206000 .
+++ cp /home/wave/GFS/2016111206/uwd2016111206003 .
+++ cp /home/wave/GFS/2016111206/vwd2016111206003 .
+++ tau=0
+++ taup6=6
+++ (( TAUEP6=TAUE+6 ))
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 0
+++ tau3=000
++++ printf '%3.3d\n' 6
+++ tau3p6=006
+++ echo 000
+000
+++ cp /home/wave/GFS/2016111212/uwd2016111212000 uwd2016111206006
+++ cp /home/wave/GFS/2016111212/vwd2016111212000 vwd2016111206006
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 3
+++ tau3=003
++++ printf '%3.3d\n' 9
+++ tau3p6=009
+++ echo 003
+003
+++ cp /home/wave/GFS/2016111212/uwd2016111212003 uwd2016111206009
+++ cp /home/wave/GFS/2016111212/vwd2016111212003 vwd2016111206009
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 6
+++ tau3=006
++++ printf '%3.3d\n' 12
+++ tau3p6=012
+++ echo 006
+006
+++ cp /home/wave/GFS/2016111212/uwd2016111212006 uwd2016111206012
+++ cp /home/wave/GFS/2016111212/vwd2016111212006 vwd2016111206012
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 9
+++ tau3=009
++++ printf '%3.3d\n' 15
+++ tau3p6=015
+++ echo 009
+009
+++ cp /home/wave/GFS/2016111212/uwd2016111212009 uwd2016111206015
+++ cp /home/wave/GFS/2016111212/vwd2016111212009 vwd2016111206015
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 12
+++ tau3=012
++++ printf '%3.3d\n' 18
+++ tau3p6=018
+++ echo 012
+012
+++ cp /home/wave/GFS/2016111212/uwd2016111212012 uwd2016111206018
+++ cp /home/wave/GFS/2016111212/vwd2016111212012 vwd2016111206018
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 15
+++ tau3=015
++++ printf '%3.3d\n' 21
+++ tau3p6=021
+++ echo 015
+015
+++ cp /home/wave/GFS/2016111212/uwd2016111212015 uwd2016111206021
+++ cp /home/wave/GFS/2016111212/vwd2016111212015 vwd2016111206021
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 18
+++ tau3=018
++++ printf '%3.3d\n' 24
+++ tau3p6=024
+++ echo 018
+018
+++ cp /home/wave/GFS/2016111212/uwd2016111212018 uwd2016111206024
+++ cp /home/wave/GFS/2016111212/vwd2016111212018 vwd2016111206024
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 21
+++ tau3=021
++++ printf '%3.3d\n' 27
+++ tau3p6=027
+++ echo 021
+021
+++ cp /home/wave/GFS/2016111212/uwd2016111212021 uwd2016111206027
+++ cp /home/wave/GFS/2016111212/vwd2016111212021 vwd2016111206027
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 24
+++ tau3=024
++++ printf '%3.3d\n' 30
+++ tau3p6=030
+++ echo 024
+024
+++ cp /home/wave/GFS/2016111212/uwd2016111212024 uwd2016111206030
+++ cp /home/wave/GFS/2016111212/vwd2016111212024 vwd2016111206030
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 27
+++ tau3=027
++++ printf '%3.3d\n' 33
+++ tau3p6=033
+++ echo 027
+027
+++ cp /home/wave/GFS/2016111212/uwd2016111212027 uwd2016111206033
+++ cp /home/wave/GFS/2016111212/vwd2016111212027 vwd2016111206033
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
++++ printf '%3.3d\n' 30
+++ tau3=030
++++ printf '%3.3d\n' 36
+++ tau3p6=036
+++ echo 030
+030
+++ cp /home/wave/GFS/2016111212/uwd2016111212030 uwd2016111206036
+++ cp /home/wave/GFS/2016111212/vwd2016111212030 vwd2016111206036
+++ let tau=tau+3
+++ let taup6=taup6+3
+++ ((  tau <= 30  ))
+++ WDTG=2016111206
+++ '[' 30 ']'
+++ /home/wave/bin/zerogrids 2016111206 396 30 6 1440 721
+  
+  create zero filled wind grids 
+  DTG: 2016111206
+  TAUI, TAUE, TAUINC,         396          30           6
+  grid dimensions nx, ny:        1440         721
+  
+++ /home/wave/bin/wnd2prep_unf 2016111206 0 30 3 1440 721
+  
+  wind to ww3_prep interface 
+  DTG: 2016111206
+  TAUI, TAUE, TAUINC,           0          30           3
+  grid dimensions nx, ny:        1440         721
+  
+ uwd2016111206000                
+    20161112       60000
+  max value :    21.1900005    
+ vwd2016111206000                
+  max value :    21.4799995    
+ uwd2016111206003                
+    20161112       90000
+  max value :    19.7399998    
+ vwd2016111206003                
+  max value :    21.8899994    
+ uwd2016111206006                
+    20161112      120000
+  max value :    19.4400005    
+ vwd2016111206006                
+  max value :    22.1800003    
+ uwd2016111206009                
+    20161112      150000
+  max value :    20.4400005    
+ vwd2016111206009                
+  max value :    21.9200001    
+ uwd2016111206012                
+    20161112      180000
+  max value :    21.5200005    
+ vwd2016111206012                
+  max value :    22.2900009    
+ uwd2016111206015                
+    20161112      210000
+  max value :    21.5799999    
+ vwd2016111206015                
+  max value :    20.6399994    
+ uwd2016111206018                
+    20161113           0
+  max value :    21.3199997    
+ vwd2016111206018                
+  max value :    19.7199993    
+ uwd2016111206021                
+    20161113       30000
+  max value :    22.2500000    
+ vwd2016111206021                
+  max value :    22.0699997    
+ uwd2016111206024                
+    20161113       60000
+  max value :    24.3099995    
+ vwd2016111206024                
+  max value :    22.8899994    
+ uwd2016111206027                
+    20161113       90000
+  max value :    25.4599991    
+ vwd2016111206027                
+  max value :    23.2299995    
+ uwd2016111206030                
+    20161113      120000
+  max value :    24.3500004    
+ vwd2016111206030                
+  max value :    22.6299992    
+ ice2016111206000                
+    20161112       60000
+  max value :    1.00000000    
+++ rm uwd2016111206000 uwd2016111206003 uwd2016111206006 uwd2016111206009 uwd2016111206012 uwd2016111206015 uwd2016111206018 uwd2016111206021 uwd2016111206024 uwd2016111206027 uwd2016111206030 uwd2016111206033 uwd2016111206036 vwd2016111206000 vwd2016111206003 vwd2016111206006 vwd2016111206009 vwd2016111206012 vwd2016111206015 vwd2016111206018 vwd2016111206021 vwd2016111206024 vwd2016111206027 vwd2016111206030 vwd2016111206033 vwd2016111206036
+++ CLUSTER_START_TRIES=15
+++ CLUSTER_START_SLEEP=600
+++ true
+++ run-cluster WW3_development
+05:02:18   Running cluster WW3_development
+05:02:18   Starting cluster WW3_development
+error: Instance(s) not stopped
+++ (( CLUSTER_START_TRIES=CLUSTER_START_TRIES-1 ))
+++ (( CLUSTER_START_TRIES > 0 ))
+++ sleep 600
+++ true
+++ run-cluster WW3_development
+05:12:20   Running cluster WW3_development
+05:12:20   Starting cluster WW3_development
+05:12:22   Starting EC2 instances
+05:12:46   Instances all running
+05:12:46   Executing setup scripts of cluster
+ssh: connect to host 10.70.65.110 port 22: Connection refused
+05:13:05   Cluster running
+++ break
+++ ssh-node WW3_development 1 'cd ~; mkdir /tmp/space/rundir'
+++ scp-to-node WW3_development 1 /home/wave/Scripts/ncep/lastrun /tmp/space/rundir
+++ scp-to-node WW3_development 1 /home/wave/Scripts/ncep/taue /tmp/space/rundir
+++ scp-to-node WW3_development 1 /home/wave/rundir/ncep/wind_unform.ww3 /tmp/space/rundir
+++ scp-to-node WW3_development 1 /home/wave/rundir/ncep/ice_unform.ww3 /tmp/space/rundir
+++ ssh-node WW3_development 1 /home/ec2-user/Scripts/ww34_multi_ncep-s5.bsh
+Mon Nov 14 05:13:06 UTC 2016
+++ ulimit -s unlimited
+++ WW3=/home/ec2-user
+++ WW3EXE=/home/ec2-user/WW3-4.18/model/exe
+++ NCPUS=16
+++ AREA=glb
+++ COLD_START=YES
+++ NM=3
+++ NEST1=g30
+++ NEST2=w10
+++ NEST3=a10
+++ mkdir /tmp/space/rundir
+mkdir: cannot create directory `/tmp/space/rundir': File exists
+++ cd /tmp/space/rundir
++++ cat lastrun
+++ DTGM6=2016111206
++++ cat taue
+++ TAUE=24
++++ echo 2016111206
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111206
++++ cut -c9-10
+++ hr=06
++++ date --utc '--date=20161112 06 UTC +6 hours' +%Y%m%d%H
+++ DTG=2016111212
++++ date --utc '--date=20161112 06 UTC -6 hours' +%Y%m%d%H
+++ DTGM12=2016111200
++++ date --utc '--date=20161112 06 UTC -12 hours' +%Y%m%d%H
+++ DTGM18=2016111118
++++ date --utc '--date=20161112 06 UTC -18 hours' +%Y%m%d%H
+++ DTGM24=2016111112
++++ date --utc '--date=20161112 06 UTC +12 hours' +%Y%m%d%H
+++ DTGP6=2016111218
++++ date --utc '--date=20161112 06 UTC +18 hours' +%Y%m%d%H
+++ DTGP12=2016111300
++++ date --utc '--date=20161112 06 UTC +24 hours' +%Y%m%d%H
+++ DTGP18=2016111306
++++ date --utc '--date=20161112 06 UTC +30 hours' +%Y%m%d%H
+++ DTGP24=2016111312
+++ mkdir /tmp/space/rundir/2016111212
+++ TMPDIR=/tmp/space/rundir/2016111212
+++ '[' -d /tmp/space/rundir/2016111212 ']'
+++ cd /tmp/space/rundir/2016111212
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC 24 hours' +%Y%m%d%H
+++ DTGE=2016111312
++++ echo 2016111206
++++ cut -c1-8
+++ SDTG=20161112
++++ echo 2016111206
++++ cut -c9-10
+++ SHR=06
++++ echo 2016111312
++++ cut -c1-8
+++ EDTG=20161113
++++ echo 2016111312
++++ cut -c9-10
+++ EHR=12
++++ echo 2016111212
++++ cut -c3-10
+++ DTG8=16111212
++++ echo 2016111206
++++ cut -c1-8
+++ RDTG=20161112
++++ echo 2016111206
++++ cut -c9-10
+++ RHR=06
++++ echo 2016111212
++++ cut -c1-8
+++ GDTG=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ GHR=12
+++ DATDIR=/home/ec2-user
+++ STA_PATH=/home/ec2-user/grids/v4.18
+++ DYN_PATH=/home/ec2-user/restart
+++ J_PATH=/home/ec2-user/Jfiles
+++ OUT_PATH=/home/ec2-user/output
+++ WND_PATH=/home/ec2-user/winds/gfshr
+++ cp /home/ec2-user/grids/rmp_src_to_dst_conserv_002_001.nc /home/ec2-user/grids/rmp_src_to_dst_conserv_003_001.nc .
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6' '$NEST7' '$NEST8'
+++ '[' -f /home/ec2-user/restart/g30/2016111206/restart_2016111212.g30 ']'
+Restart file /home/ec2-user/restart/g30/2016111206/restart1.g30
+Not Found.
+Abnormal Cold Start
+++ '[' -f /home/ec2-user/restart/g30/2016111200/restart_2016111212.g30 ']'
+++ '[' -f /home/ec2-user/restart/g30/2016111118/restart_2016111212.g30 ']'
+++ '[' -f /home/ec2-user/restart/g30/2016111112/restart_2016111212.g30 ']'
+++ echo Restart file /home/ec2-user/restart/g30/2016111206/restart1.g30
+++ '[' YES = YES ']'
+++ echo Not Found.
+++ echo 'Abnormal Cold Start'
+++ cp /home/ec2-user/grids/v4.18/g30/mod_def.ww3 mod_def.g30
+++ cp mod_def.g30 mod_def.ww3
+++ cp ../wind_unform.ww3 .
+++ cp ../ice_unform.ww3 .
+++ ls -l wind_unform.ww3 ice_unform.ww3
+-rw-rw-r-- 1 ec2-user ec2-user  4152984 Nov 14 05:13 ice_unform.ww3
+-rw-rw-r-- 1 ec2-user ec2-user 91365472 Nov 14 05:13 wind_unform.ww3
+++ cat
+++ /home/ec2-user/WW3-4.18/model/exe/ww3_prep
+
+                 *** WAVEWATCH III  Input pre-processing ***  
+               ===============================================
+
+  Comment character is '$'
+
+  Grid name : global_720x361                
+
+
+  Description of inputs
+ --------------------------------------------------
+       Input type        : winds       
+       Format type       : long.-lat. grid     
+          Field conserves velocity.
+
+       Input grid dim.   : 1440     721
+       Longitude range   :    0.00  359.75 (deg)
+       Latitude range    :  -90.00   90.00 (deg)
+
+
+  Preprocessing data
+ --------------------------------------------------
+       Interpolation factors ..... 
+          (longitude-latitude grid)
+
+           Data file :
+          ---------------------------------------
+           Input grid dim.   : 1440     721
+           Layout indicator  :    2
+           Format indicator  :    3
+           Unit number       :   91
+           File name         : wind_unform.ww3                                                  
+
+       Opening input data file .....
+
+       Opening output data file .....
+
+
+  Processing data
+ --------------------------------------------------
+           Time : 2016/11/12 06:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 09:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 12:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 15:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 18:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 21:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 00:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 03:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 06:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 09:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 12:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+
+
+  End of program 
+ =========================================
+         WAVEWATCH III Input preprocessing 
+
+++ mv wind.ww3 wind.g30
+++ '[' -f ice_unform.ww3 ']'
+++ cat
+++ /home/ec2-user/WW3-4.18/model/exe/ww3_prep
+
+                 *** WAVEWATCH III  Input pre-processing ***  
+               ===============================================
+
+  Comment character is '$'
+
+  Grid name : global_720x361                
+
+
+  Description of inputs
+ --------------------------------------------------
+       Input type        : ice         
+       Format type       : long.-lat. grid     
+
+       Input grid dim.   : 1440     721
+       Longitude range   :    0.00  359.75 (deg)
+       Latitude range    :  -90.00   90.00 (deg)
+
+
+  Preprocessing data
+ --------------------------------------------------
+       Interpolation factors ..... 
+          (longitude-latitude grid)
+
+           Data file :
+          ---------------------------------------
+           Input grid dim.   : 1440     721
+           Layout indicator  :    2
+           Format indicator  :    3
+           Unit number       :   91
+           File name         : ice_unform.ww3                                                   
+
+       Opening input data file .....
+
+       Opening output data file .....
+
+
+  Processing data
+ --------------------------------------------------
+           Time : 2016/11/12 06:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+
+
+  End of program 
+ =========================================
+         WAVEWATCH III Input preprocessing 
+
+++ '[' -f ice.ww3 ']'
+++ mv ice.ww3 ice.g30
+++ ICE=native
+++ FICE=T
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6' '$NEST7' '$NEST8'
+++ '[' -f /home/ec2-user/restart/w10/2016111206/restart_2016111212.w10 ']'
+Restart file /home/ec2-user/restart/w10/2016111206/restart1.w10
+Not Found.
+Abnormal Cold Start
+++ '[' -f /home/ec2-user/restart/w10/2016111200/restart_2016111212.w10 ']'
+++ '[' -f /home/ec2-user/restart/w10/2016111118/restart_2016111212.w10 ']'
+++ '[' -f /home/ec2-user/restart/w10/2016111112/restart_2016111212.w10 ']'
+++ echo Restart file /home/ec2-user/restart/w10/2016111206/restart1.w10
+++ '[' YES = YES ']'
+++ echo Not Found.
+++ echo 'Abnormal Cold Start'
+++ cp /home/ec2-user/grids/v4.18/w10/mod_def.ww3 mod_def.w10
+++ cp mod_def.w10 mod_def.ww3
+++ cp ../wind_unform.ww3 .
+++ cp ../ice_unform.ww3 .
+++ ls -l wind.g30 wind_unform.ww3 ice.g30 ice_unform.ww3
+-rw-rw-r-- 1 ec2-user ec2-user  1039752 Nov 14 05:13 ice.g30
+-rw-rw-r-- 1 ec2-user ec2-user  4152984 Nov 14 05:13 ice_unform.ww3
+-rw-rw-r-- 1 ec2-user ec2-user 22873360 Nov 14 05:13 wind.g30
+-rw-rw-r-- 1 ec2-user ec2-user 91365472 Nov 14 05:13 wind_unform.ww3
+++ cat
+++ /home/ec2-user/WW3-4.18/model/exe/ww3_prep
+
+                 *** WAVEWATCH III  Input pre-processing ***  
+               ===============================================
+
+  Comment character is '$'
+
+  Grid name : West Coast 10 min wave grid   
+
+
+  Description of inputs
+ --------------------------------------------------
+       Input type        : winds       
+       Format type       : long.-lat. grid     
+          Field conserves velocity.
+
+       Input grid dim.   : 1440     721
+       Longitude range   :    0.00  359.75 (deg)
+       Latitude range    :  -90.00   90.00 (deg)
+
+
+  Preprocessing data
+ --------------------------------------------------
+       Interpolation factors ..... 
+          (longitude-latitude grid)
+
+           Data file :
+          ---------------------------------------
+           Input grid dim.   : 1440     721
+           Layout indicator  :    2
+           Format indicator  :    3
+           Unit number       :   91
+           File name         : wind_unform.ww3                                                  
+
+       Opening input data file .....
+
+       Opening output data file .....
+
+
+  Processing data
+ --------------------------------------------------
+           Time : 2016/11/12 06:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 09:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 12:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 15:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 18:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 21:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 00:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 03:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 06:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 09:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 12:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+
+
+  End of program 
+ =========================================
+         WAVEWATCH III Input preprocessing 
+
+++ mv wind.ww3 wind.w10
+++ '[' -f ice_unform.ww3 ']'
+++ cat
+++ /home/ec2-user/WW3-4.18/model/exe/ww3_prep
+
+                 *** WAVEWATCH III  Input pre-processing ***  
+               ===============================================
+
+  Comment character is '$'
+
+  Grid name : West Coast 10 min wave grid   
+
+
+  Description of inputs
+ --------------------------------------------------
+       Input type        : ice         
+       Format type       : long.-lat. grid     
+
+       Input grid dim.   : 1440     721
+       Longitude range   :    0.00  359.75 (deg)
+       Latitude range    :  -90.00   90.00 (deg)
+
+
+  Preprocessing data
+ --------------------------------------------------
+       Interpolation factors ..... 
+          (longitude-latitude grid)
+
+           Data file :
+          ---------------------------------------
+           Input grid dim.   : 1440     721
+           Layout indicator  :    2
+           Format indicator  :    3
+           Unit number       :   91
+           File name         : ice_unform.ww3                                                   
+
+       Opening input data file .....
+
+       Opening output data file .....
+
+
+  Processing data
+ --------------------------------------------------
+           Time : 2016/11/12 06:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+
+
+  End of program 
+ =========================================
+         WAVEWATCH III Input preprocessing 
+
+++ '[' -f ice.ww3 ']'
+++ mv ice.ww3 ice.w10
+++ ICE=native
+++ FICE=T
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6' '$NEST7' '$NEST8'
+++ '[' -f /home/ec2-user/restart/a10/2016111206/restart_2016111212.a10 ']'
+Restart file /home/ec2-user/restart/a10/2016111206/restart1.a10
+Not Found.
+Abnormal Cold Start
+++ '[' -f /home/ec2-user/restart/a10/2016111200/restart_2016111212.a10 ']'
+++ '[' -f /home/ec2-user/restart/a10/2016111118/restart_2016111212.a10 ']'
+++ '[' -f /home/ec2-user/restart/a10/2016111112/restart_2016111212.a10 ']'
+++ echo Restart file /home/ec2-user/restart/a10/2016111206/restart1.a10
+++ '[' YES = YES ']'
+++ echo Not Found.
+++ echo 'Abnormal Cold Start'
+++ cp /home/ec2-user/grids/v4.18/a10/mod_def.ww3 mod_def.a10
+++ cp mod_def.a10 mod_def.ww3
+++ cp ../wind_unform.ww3 .
+++ cp ../ice_unform.ww3 .
+++ ls -l wind.g30 wind_unform.ww3 wind.w10 ice.g30 ice_unform.ww3 ice.w10
+-rw-rw-r-- 1 ec2-user ec2-user  1039752 Nov 14 05:13 ice.g30
+-rw-rw-r-- 1 ec2-user ec2-user  4152984 Nov 14 05:13 ice_unform.ww3
+-rw-rw-r-- 1 ec2-user ec2-user   145636 Nov 14 05:13 ice.w10
+-rw-rw-r-- 1 ec2-user ec2-user 22873360 Nov 14 05:13 wind.g30
+-rw-rw-r-- 1 ec2-user ec2-user 91365472 Nov 14 05:13 wind_unform.ww3
+-rw-rw-r-- 1 ec2-user ec2-user  3202808 Nov 14 05:13 wind.w10
+++ cat
+++ /home/ec2-user/WW3-4.18/model/exe/ww3_prep
+
+                 *** WAVEWATCH III  Input pre-processing ***  
+               ===============================================
+
+  Comment character is '$'
+
+  Grid name : NW Atlantic 10 min wave grid  
+
+
+  Description of inputs
+ --------------------------------------------------
+       Input type        : winds       
+       Format type       : long.-lat. grid     
+          Field conserves velocity.
+
+       Input grid dim.   : 1440     721
+       Longitude range   :    0.00  359.75 (deg)
+       Latitude range    :  -90.00   90.00 (deg)
+
+
+  Preprocessing data
+ --------------------------------------------------
+       Interpolation factors ..... 
+          (longitude-latitude grid)
+
+           Data file :
+          ---------------------------------------
+           Input grid dim.   : 1440     721
+           Layout indicator  :    2
+           Format indicator  :    3
+           Unit number       :   91
+           File name         : wind_unform.ww3                                                  
+
+       Opening input data file .....
+
+       Opening output data file .....
+
+
+  Processing data
+ --------------------------------------------------
+           Time : 2016/11/12 06:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 09:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 12:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 15:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 18:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/12 21:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 00:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 03:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 06:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 09:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+           Time : 2016/11/13 12:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+
+
+  End of program 
+ =========================================
+         WAVEWATCH III Input preprocessing 
+
+++ mv wind.ww3 wind.a10
+++ '[' -f ice_unform.ww3 ']'
+++ cat
+++ /home/ec2-user/WW3-4.18/model/exe/ww3_prep
+
+                 *** WAVEWATCH III  Input pre-processing ***  
+               ===============================================
+
+  Comment character is '$'
+
+  Grid name : NW Atlantic 10 min wave grid  
+
+
+  Description of inputs
+ --------------------------------------------------
+       Input type        : ice         
+       Format type       : long.-lat. grid     
+
+       Input grid dim.   : 1440     721
+       Longitude range   :    0.00  359.75 (deg)
+       Latitude range    :  -90.00   90.00 (deg)
+
+
+  Preprocessing data
+ --------------------------------------------------
+       Interpolation factors ..... 
+          (longitude-latitude grid)
+
+           Data file :
+          ---------------------------------------
+           Input grid dim.   : 1440     721
+           Layout indicator  :    2
+           Format indicator  :    3
+           Unit number       :   91
+           File name         : ice_unform.ww3                                                   
+
+       Opening input data file .....
+
+       Opening output data file .....
+
+
+  Processing data
+ --------------------------------------------------
+           Time : 2016/11/12 06:00:00 UTC
+                  reading ....
+                  interpolating ....
+                  writing ....
+
+
+  End of program 
+ =========================================
+         WAVEWATCH III Input preprocessing 
+
+++ '[' -f ice.ww3 ']'
+++ mv ice.ww3 ice.a10
+++ ICE=native
+++ FICE=T
+++ cat
+++ date
+Mon Nov 14 05:13:17 UTC 2016
+++ mpirun -machinefile /home/ec2-user/machine-file -np 16 /home/ec2-user/WW3-4.18/model/exe/ww3_multi
+
+                    *** WAVEWATCH III Multi-grid shell ***    
+               =================================================
+
+  Opening input file ww3_multi.inp (unit number  8)
+  Opening output file log.mww3 (unit number  9)
+
+  Comment character : '$'
+
+  Number of grids          :  3
+  No input data grids.
+  Single point output file : ---/NO
+
+  Output server type       :  1
+
+  Wave grid information : 
+  nr extension  lev.   cur.   wind   ice    data   move1 rnk grp dmp
+ --------------------------------------------------------------------
+   1 g30        ---    ---    native native - - -  no     1   1   -
+   2 w10        ---    ---    native ---    - - -  no     2   2   -
+   3 a10        ---    ---    native ---    - - -  no     2   2   -
+ --------------------------------------------------------------------
+
+  Group information : 
+  nr   grids (part of comm.)
+ --------------------------------------------------------------------
+   1    1 (0.0000-1.0000)
+   2    2 (0.0000-1.0000)  3 (0.0000-1.0000)
+ --------------------------------------------------------------------
+
+
+  Time interval : 
+ --------------------------------------------------
+       Starting time : 2016/11/12 06:00:00 UTC
+       Ending time   : 2016/11/13 12:00:00 UTC
+
+
+  Model settings : 
+ --------------------------------------------------
+       Masking computation in nesting : YES/--
+       Masking output in nesting      : ---/NO
+
+
+  Output requests : (ALL GRIDS) 
+ ==================================================
+
+       Type 1 : Fields of mean wave parameters
+      -----------------------------------------
+            From     : 2016/11/12 12:00:00 UTC
+            To       : 2016/11/13 12:00:00 UTC
+            Interval :             1:00:00
+
+            Fields   : Water depth         
+                       Current vel.        
+                       Wind speed          
+                       Wave height         
+                       Mean wave period(-1)
+                       Peak frequency      
+                       Peak direction      
+                       Part. wave heigt    
+                       Part. peak period   
+                       Part. mean direction
+
+       Type 2 : Point output                  
+      -----------------------------------------
+            From     : 2016/11/12 06:00:00 UTC
+            To       : 2016/11/13 12:00:00 UTC
+            Interval :             6:00:00
+
+            Point  1 :  -0.140000E+03  0.350000E+02  test1     
+
+       Type 4 : Restart files                 
+      -----------------------------------------
+            From     : 2016/11/12 06:00:00 UTC
+            To       : 2016/11/13 12:00:00 UTC
+            Interval :             6:00:00
+
+
+       Type 5 : Nesting data                  
+      -----------------------------------------
+            From     : 2016/11/12 06:00:00 UTC
+            To       : 2016/11/13 12:00:00 UTC
+            Interval :             3:00:00
+
+
+
+  Assigning resources : 
+ --------------------------------------------------
+       No (other) dedicated output processes.
+
+       grid           comp.      grd    pnt    trk    rst    bpt    prt
+      -------------------------------------------------------------------
+       g30         00001-00016  00015  00014  -----  00016  00013  -----
+       w10         00001-00016  00015  00014  -----  00016  00013  -----
+       a10         00001-00016  00015  00014  -----  00016  00013  -----
+      -------------------------------------------------------------------
+
+
+
+  Initializations :
+ --------------------------------------------------
+       Model number  1 [g30]
+          Initializing wave model ...
+
+ *** WAVEWATCH III WARNING IN W3IORS : 
+     ERROR IN OPENING FILE, INITIALIZE WITH 'CALM' INSTEAD
+     IOSTAT =    2
+
+          Initializing model input ...
+            water levels : file not needed
+            currents     : file not needed
+            winds        : file OK
+            ice fields   : file OK
+       Model number  2 [w10]
+          Initializing wave model ...
+
+ *** WAVEWATCH III WARNING IN W3IORS : 
+     ERROR IN OPENING FILE, INITIALIZE WITH 'CALM' INSTEAD
+     IOSTAT =    2
+
+
+ *** WAVEWATCH-III WARNING :
+     OUTPUT POINT ON LAND :   -140.000    35.000  test1     
+     POINT SKIPPPED 
+
+          Initializing model input ...
+            water levels : file not needed
+            currents     : file not needed
+            winds        : file OK
+            ice fields   : file not needed
+       Model number  3 [a10]
+          Initializing wave model ...
+
+ *** WAVEWATCH III WARNING IN W3IORS : 
+     ERROR IN OPENING FILE, INITIALIZE WITH 'CALM' INSTEAD
+     IOSTAT =    2
+
+
+ *** WAVEWATCH-III WARNING :
+     OUTPUT POINT OUT OF GRID :   -140.000    35.000  test1     
+     POINT SKIPPPED 
+
+          Initializing model input ...
+            water levels : file not needed
+            currents     : file not needed
+            winds        : file OK
+            ice fields   : file not needed
+
+  Computing relation to higher ranked grids
+
+  Generating map with distances to boundary.
+    processing column    25 out of   241
+    processing column    50 out of   241
+    processing column    75 out of   241
+    processing column   100 out of   241
+    processing column   125 out of   241
+    processing column   150 out of   241
+    processing column   175 out of   241
+    processing column   200 out of   241
+    processing column   225 out of   241
+  Finished generating map with distances to boundary.
+
+  Generating map with distances to boundary.
+    processing column    25 out of   301
+    processing column    50 out of   301
+    processing column    75 out of   301
+    processing column   100 out of   301
+    processing column   125 out of   301
+    processing column   150 out of   301
+    processing column   175 out of   301
+    processing column   200 out of   301
+    processing column   225 out of   301
+    processing column   250 out of   301
+    processing column   275 out of   301
+    processing column   300 out of   301
+  Finished generating map with distances to boundary.
+
+Calling SCRIP for GSRC,GDST =     2    1
+  
+ Grid 1 size       36391
+ Grid 2 size      259920
+
+ Reading remapping data from rmp_src_to_dst_conserv_002_001.nc                                                                   
+Calling SCRIP for GSRC,GDST =     3    1
+  
+ Grid 1 size       99631
+ Grid 2 size      259920
+
+ Reading remapping data from rmp_src_to_dst_conserv_003_001.nc                                                                   
+
+  Finished computing relation to higher ranked grids
+
+
+  Additional group information
+
+  Lower rank grid dependence : 
+  nr   grids (part of comm.)
+ --------------------------------------------------------------------
+   1   No dependencies
+   2    1
+   3    1
+ --------------------------------------------------------------------
+
+  No same rank grid dependencies
+
+  Higher rank grid dependence : 
+  nr   grids (part of comm.)
+ --------------------------------------------------------------------
+   1    2  3
+   2   No dependencies
+   3   No dependencies
+ --------------------------------------------------------------------
+
+  Running the model :
+ --------------------------------------------------
+
+  MWW3 calculating for 2016/11/12 06:00:00 UTC at 05:13:21  status [ 0- 0]
+
+  Updating input for grid  1 at 2016/11/12 06:00:00 UTC
+     Updating winds        
+     Updating ice fields   
+
+  Updating input for grid  2 at 2016/11/12 06:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/12 06:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/12 06:00:00 UTC
+     Updating ice fields   
+        Past last ice fields   
+
+  MWW3 calculating for 2016/11/12 06:30:00 UTC at 05:13:29  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 07:00:00 UTC at 05:13:51  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 07:30:00 UTC at 05:15:33  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 08:00:00 UTC at 05:16:51  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 08:30:00 UTC at 05:17:49  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 09:00:00 UTC at 05:18:38  status [ 2- 5]
+
+  Updating input for grid  2 at 2016/11/12 09:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/12 09:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/12 09:00:00 UTC
+     Updating winds        
+
+  MWW3 calculating for 2016/11/12 09:30:00 UTC at 05:19:20  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 10:00:00 UTC at 05:19:57  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 10:30:00 UTC at 05:20:30  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 11:00:00 UTC at 05:21:01  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 11:30:00 UTC at 05:21:30  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 12:00:00 UTC at 05:21:58  status [ 2- 5]
+
+  Updating input for grid  2 at 2016/11/12 12:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/12 12:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/12 12:00:00 UTC
+     Updating winds        
+
+  MWW3 calculating for 2016/11/12 12:30:00 UTC at 05:22:26  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 13:00:00 UTC at 05:22:51  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 13:30:00 UTC at 05:23:16  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 14:00:00 UTC at 05:23:39  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 14:30:00 UTC at 05:24:03  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 15:00:00 UTC at 05:24:24  status [ 2- 5]
+
+  Updating input for grid  2 at 2016/11/12 15:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/12 15:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/12 15:00:00 UTC
+     Updating winds        
+
+  MWW3 calculating for 2016/11/12 15:30:00 UTC at 05:24:47  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 16:00:00 UTC at 05:25:08  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 16:30:00 UTC at 05:25:30  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 17:00:00 UTC at 05:25:50  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 17:30:00 UTC at 05:26:10  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 18:00:00 UTC at 05:26:30  status [ 2- 5]
+
+  Updating input for grid  2 at 2016/11/12 18:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/12 18:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/12 18:00:00 UTC
+     Updating winds        
+
+  MWW3 calculating for 2016/11/12 18:30:00 UTC at 05:26:50  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 19:00:00 UTC at 05:27:09  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 19:30:00 UTC at 05:27:28  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 20:00:00 UTC at 05:27:47  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 20:30:00 UTC at 05:28:07  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 21:00:00 UTC at 05:28:25  status [ 2- 5]
+
+  Updating input for grid  2 at 2016/11/12 21:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/12 21:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/12 21:00:00 UTC
+     Updating winds        
+
+  MWW3 calculating for 2016/11/12 21:30:00 UTC at 05:28:44  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 22:00:00 UTC at 05:29:02  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 22:30:00 UTC at 05:29:22  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 23:00:00 UTC at 05:29:40  status [ 2- 5]
+  MWW3 calculating for 2016/11/12 23:30:00 UTC at 05:29:59  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 00:00:00 UTC at 05:30:16  status [ 2- 5]
+
+  Updating input for grid  2 at 2016/11/13 00:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/13 00:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/13 00:00:00 UTC
+     Updating winds        
+
+  MWW3 calculating for 2016/11/13 00:30:00 UTC at 05:30:36  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 01:00:00 UTC at 05:30:54  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 01:30:00 UTC at 05:31:12  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 02:00:00 UTC at 05:31:29  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 02:30:00 UTC at 05:31:47  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 03:00:00 UTC at 05:32:03  status [ 2- 5]
+
+  Updating input for grid  2 at 2016/11/13 03:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/13 03:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/13 03:00:00 UTC
+     Updating winds        
+
+  MWW3 calculating for 2016/11/13 03:30:00 UTC at 05:32:21  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 04:00:00 UTC at 05:32:37  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 04:30:00 UTC at 05:32:55  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 05:00:00 UTC at 05:33:10  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 05:30:00 UTC at 05:33:27  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 06:00:00 UTC at 05:33:43  status [ 2- 5]
+
+  Updating input for grid  2 at 2016/11/13 06:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/13 06:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/13 06:00:00 UTC
+     Updating winds        
+
+  MWW3 calculating for 2016/11/13 06:30:00 UTC at 05:34:00  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 07:00:00 UTC at 05:34:15  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 07:30:00 UTC at 05:34:31  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 08:00:00 UTC at 05:34:46  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 08:30:00 UTC at 05:35:02  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 09:00:00 UTC at 05:35:16  status [ 2- 5]
+
+  Updating input for grid  2 at 2016/11/13 09:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  3 at 2016/11/13 09:00:00 UTC
+     Updating winds        
+
+  Updating input for grid  1 at 2016/11/13 09:00:00 UTC
+     Updating winds        
+
+  MWW3 calculating for 2016/11/13 09:30:00 UTC at 05:35:32  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 10:00:00 UTC at 05:35:47  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 10:30:00 UTC at 05:36:03  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 11:00:00 UTC at 05:36:17  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 11:30:00 UTC at 05:36:33  status [ 2- 5]
+  MWW3 calculating for 2016/11/13 12:00:00 UTC at 05:36:48  status [ 2- 5]
+
+  Initialization time :      4.03 s
+  Elapsed time        :   1419.07 s
+
+
+  End of program 
+ ========================================
+          WAVEWATCH III Multi-grid shell 
+
+Exit status from Wavewatch 0
+++ '[' 0 = 0 ']'
+++ echo Exit status from Wavewatch 0
+++ date
+Mon Nov 14 05:36:56 UTC 2016
+++ echo 2016111212
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6'
+++ '[' -d /home/ec2-user/restart/g30/2016111212 ']'
+++ mkdir -p /home/ec2-user/restart/g30/2016111212
+++ chmod 775 /home/ec2-user/restart/g30/2016111212
+++ cp restart001.g30 /home/ec2-user/restart/g30/2016111212/restart_2016111218.g30
+++ cp restart002.g30 /home/ec2-user/restart/g30/2016111212/restart_2016111300.g30
+++ cp restart003.g30 /home/ec2-user/restart/g30/2016111212/restart_2016111306.g30
+++ cp restart004.g30 /home/ec2-user/restart/g30/2016111212/restart_2016111312.g30
+++ cp log.g30 /home/ec2-user/restart/g30/2016111212
+++ cp log.mww3 /home/ec2-user/restart/g30/2016111212
+++ '[' -f nest1.g30 ']'
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6'
+++ '[' -d /home/ec2-user/restart/w10/2016111212 ']'
+++ mkdir -p /home/ec2-user/restart/w10/2016111212
+++ chmod 775 /home/ec2-user/restart/w10/2016111212
+++ cp restart001.w10 /home/ec2-user/restart/w10/2016111212/restart_2016111218.w10
+++ cp restart002.w10 /home/ec2-user/restart/w10/2016111212/restart_2016111300.w10
+++ cp restart003.w10 /home/ec2-user/restart/w10/2016111212/restart_2016111306.w10
+++ cp restart004.w10 /home/ec2-user/restart/w10/2016111212/restart_2016111312.w10
+++ cp log.w10 /home/ec2-user/restart/w10/2016111212
+++ cp log.mww3 /home/ec2-user/restart/w10/2016111212
+++ '[' -f nest1.w10 ']'
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6'
+++ '[' -d /home/ec2-user/restart/a10/2016111212 ']'
+++ mkdir -p /home/ec2-user/restart/a10/2016111212
+++ chmod 775 /home/ec2-user/restart/a10/2016111212
+++ cp restart001.a10 /home/ec2-user/restart/a10/2016111212/restart_2016111218.a10
+++ cp restart002.a10 /home/ec2-user/restart/a10/2016111212/restart_2016111300.a10
+++ cp restart003.a10 /home/ec2-user/restart/a10/2016111212/restart_2016111306.a10
+++ cp restart004.a10 /home/ec2-user/restart/a10/2016111212/restart_2016111312.a10
+++ cp log.a10 /home/ec2-user/restart/a10/2016111212
+++ cp log.mww3 /home/ec2-user/restart/a10/2016111212
+++ '[' -f nest1.a10 ']'
+++ '[' -d /home/ec2-user/Jfiles/a10/2016111212 ']'
+++ mkdir -p /home/ec2-user/Jfiles/a10/2016111212
+++ chmod 775 /home/ec2-user/Jfiles/a10/2016111212
+++ for NEST in '$NEST1' '$NEST2' '$NEST3'
+++ rm mod_def.ww3
+++ ln -s mod_def.g30 mod_def.ww3
+++ rm restart.ww3
+rm: cannot remove `restart.ww3': No such file or directory
+++ typeset -i FN NUM
+++ JNUM=0
+++ NUM=2
+++ FN=6
+++ (( 6 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +6 hours' +%Y%m%d%H
+++ FDTG=2016111218
++++ printf %2.2i 2
+++ num=02
+++ ln -s restart002.g30 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111218
+  Grid Name: global_720x361                
+  Grid dimensions:          720         361
+  Number of sea points:       156635
+  Number of frequency bins in spectra           25
+  Number of directional bins in spectra           24
+  
+  max wave ht    3.05502939    
+++ ls -l J2016111218
+-rw-rw-r-- 1 ec2-user ec2-user 187962000 Nov 14 05:37 J2016111218
++++ ls -l J2016111218
++++ awk '{print $5}'
+++ FS=187962000
+++ '[' 187962000 -ge 43183200 ']'
+++ chmod 777 J2016111218
+++ cp J2016111218 J2016111212_6_g30
+++ ((  JNUM=JNUM+1  ))
+++ rm J2016111218 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 12 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +12 hours' +%Y%m%d%H
+++ FDTG=2016111300
++++ printf %2.2i 3
+++ num=03
+++ ln -s restart003.g30 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111300
+  Grid Name: global_720x361                
+  Grid dimensions:          720         361
+  Number of sea points:       156635
+  Number of frequency bins in spectra           25
+  Number of directional bins in spectra           24
+  
+  max wave ht    3.54449105    
+++ ls -l J2016111300
+-rw-rw-r-- 1 ec2-user ec2-user 187962000 Nov 14 05:37 J2016111300
++++ ls -l J2016111300
++++ awk '{print $5}'
+++ FS=187962000
+++ '[' 187962000 -ge 43183200 ']'
+++ chmod 777 J2016111300
+++ cp J2016111300 J2016111212_12_g30
+++ ((  JNUM=JNUM+1  ))
+++ rm J2016111300 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 18 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +18 hours' +%Y%m%d%H
+++ FDTG=2016111306
++++ printf %2.2i 4
+++ num=04
+++ ln -s restart004.g30 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111306
+  Grid Name: global_720x361                
+  Grid dimensions:          720         361
+  Number of sea points:       156635
+  Number of frequency bins in spectra           25
+  Number of directional bins in spectra           24
+  
+  max wave ht    3.68333197    
+++ ls -l J2016111306
+-rw-rw-r-- 1 ec2-user ec2-user 187962000 Nov 14 05:37 J2016111306
++++ ls -l J2016111306
++++ awk '{print $5}'
+++ FS=187962000
+++ '[' 187962000 -ge 43183200 ']'
+++ chmod 777 J2016111306
+++ cp J2016111306 J2016111212_18_g30
+++ ((  JNUM=JNUM+1  ))
+++ rm J2016111306 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 24 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +24 hours' +%Y%m%d%H
+++ FDTG=2016111312
++++ printf %2.2i 5
+++ num=05
+++ ln -s restart005.g30 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111312
+  Grid Name: global_720x361                
+  Grid dimensions:          720         361
+  Number of sea points:       156635
+  Number of frequency bins in spectra           25
+  Number of directional bins in spectra           24
+  
+  max wave ht    3.69543147    
+++ ls -l J2016111312
+-rw-rw-r-- 1 ec2-user ec2-user 187962000 Nov 14 05:37 J2016111312
++++ ls -l J2016111312
++++ awk '{print $5}'
+++ FS=187962000
+++ '[' 187962000 -ge 43183200 ']'
+++ chmod 777 J2016111312
+++ cp J2016111312 J2016111212_24_g30
+++ ((  JNUM=JNUM+1  ))
+++ rm J2016111312 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 30 <= 24 ))
+++ for NEST in '$NEST1' '$NEST2' '$NEST3'
+++ rm mod_def.ww3
+++ ln -s mod_def.w10 mod_def.ww3
+++ rm restart.ww3
+rm: cannot remove `restart.ww3': No such file or directory
+++ typeset -i FN NUM
+++ JNUM=0
+++ NUM=2
+++ FN=6
+++ (( 6 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +6 hours' +%Y%m%d%H
+++ FDTG=2016111218
++++ printf %2.2i 2
+++ num=02
+++ ln -s restart002.w10 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111218
+  Grid Name: West Coast 10 min wave grid   
+  Grid dimensions:          241         151
+  Number of sea points:         5656
+  Number of frequency bins in spectra           36
+  Number of directional bins in spectra           36
+  
+  max wave ht    3.05934739    
+++ ls -l J2016111218
+-rw-rw-r-- 1 ec2-user ec2-user 14660352 Nov 14 05:37 J2016111218
++++ ls -l J2016111218
++++ awk '{print $5}'
+++ FS=14660352
+++ '[' 14660352 -ge 43183200 ']'
+++ rm J2016111218 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 12 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +12 hours' +%Y%m%d%H
+++ FDTG=2016111300
++++ printf %2.2i 3
+++ num=03
+++ ln -s restart003.w10 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111300
+  Grid Name: West Coast 10 min wave grid   
+  Grid dimensions:          241         151
+  Number of sea points:         5656
+  Number of frequency bins in spectra           36
+  Number of directional bins in spectra           36
+  
+  max wave ht    2.69652033    
+++ ls -l J2016111300
+-rw-rw-r-- 1 ec2-user ec2-user 14660352 Nov 14 05:37 J2016111300
++++ ls -l J2016111300
++++ awk '{print $5}'
+++ FS=14660352
+++ '[' 14660352 -ge 43183200 ']'
+++ rm J2016111300 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 18 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +18 hours' +%Y%m%d%H
+++ FDTG=2016111306
++++ printf %2.2i 4
+++ num=04
+++ ln -s restart004.w10 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111306
+  Grid Name: West Coast 10 min wave grid   
+  Grid dimensions:          241         151
+  Number of sea points:         5656
+  Number of frequency bins in spectra           36
+  Number of directional bins in spectra           36
+  
+  max wave ht    3.75709009    
+++ ls -l J2016111306
+-rw-rw-r-- 1 ec2-user ec2-user 14660352 Nov 14 05:37 J2016111306
++++ ls -l J2016111306
++++ awk '{print $5}'
+++ FS=14660352
+++ '[' 14660352 -ge 43183200 ']'
+++ rm J2016111306 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 24 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +24 hours' +%Y%m%d%H
+++ FDTG=2016111312
++++ printf %2.2i 5
+++ num=05
+++ ln -s restart005.w10 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111312
+  Grid Name: West Coast 10 min wave grid   
+  Grid dimensions:          241         151
+  Number of sea points:         5656
+  Number of frequency bins in spectra           36
+  Number of directional bins in spectra           36
+  
+  max wave ht    4.64212990    
+++ ls -l J2016111312
+-rw-rw-r-- 1 ec2-user ec2-user 14660352 Nov 14 05:37 J2016111312
++++ ls -l J2016111312
++++ awk '{print $5}'
+++ FS=14660352
+++ '[' 14660352 -ge 43183200 ']'
+++ rm J2016111312 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 30 <= 24 ))
+++ for NEST in '$NEST1' '$NEST2' '$NEST3'
+++ rm mod_def.ww3
+++ ln -s mod_def.a10 mod_def.ww3
+++ rm restart.ww3
+rm: cannot remove `restart.ww3': No such file or directory
+++ typeset -i FN NUM
+++ JNUM=0
+++ NUM=2
+++ FN=6
+++ (( 6 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +6 hours' +%Y%m%d%H
+++ FDTG=2016111218
++++ printf %2.2i 2
+++ num=02
+++ ln -s restart002.a10 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111218
+  Grid Name: NW Atlantic 10 min wave grid  
+  Grid dimensions:          301         331
+  Number of sea points:        28273
+  Number of frequency bins in spectra           36
+  Number of directional bins in spectra           36
+  
+  max wave ht    3.06335831    
+++ ls -l J2016111218
+-rw-rw-r-- 1 ec2-user ec2-user 73283616 Nov 14 05:37 J2016111218
++++ ls -l J2016111218
++++ awk '{print $5}'
+++ FS=73283616
+++ '[' 73283616 -ge 43183200 ']'
+++ chmod 777 J2016111218
+++ cp J2016111218 J2016111212_6_a10
+++ ((  JNUM=JNUM+1  ))
+++ rm J2016111218 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 12 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +12 hours' +%Y%m%d%H
+++ FDTG=2016111300
++++ printf %2.2i 3
+++ num=03
+++ ln -s restart003.a10 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111300
+  Grid Name: NW Atlantic 10 min wave grid  
+  Grid dimensions:          301         331
+  Number of sea points:        28273
+  Number of frequency bins in spectra           36
+  Number of directional bins in spectra           36
+  
+  max wave ht    3.30494523    
+++ ls -l J2016111300
+-rw-rw-r-- 1 ec2-user ec2-user 73283616 Nov 14 05:37 J2016111300
++++ ls -l J2016111300
++++ awk '{print $5}'
+++ FS=73283616
+++ '[' 73283616 -ge 43183200 ']'
+++ chmod 777 J2016111300
+++ cp J2016111300 J2016111212_12_a10
+++ ((  JNUM=JNUM+1  ))
+++ rm J2016111300 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 18 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +18 hours' +%Y%m%d%H
+++ FDTG=2016111306
++++ printf %2.2i 4
+++ num=04
+++ ln -s restart004.a10 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111306
+  Grid Name: NW Atlantic 10 min wave grid  
+  Grid dimensions:          301         331
+  Number of sea points:        28273
+  Number of frequency bins in spectra           36
+  Number of directional bins in spectra           36
+  
+  max wave ht    3.42362976    
+++ ls -l J2016111306
+-rw-rw-r-- 1 ec2-user ec2-user 73283616 Nov 14 05:37 J2016111306
++++ ls -l J2016111306
++++ awk '{print $5}'
+++ FS=73283616
+++ '[' 73283616 -ge 43183200 ']'
+++ chmod 777 J2016111306
+++ cp J2016111306 J2016111212_18_a10
+++ ((  JNUM=JNUM+1  ))
+++ rm J2016111306 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 24 <= 24 ))
++++ echo 2016111212
++++ cut -c1-8
+++ dt=20161112
++++ echo 2016111212
++++ cut -c9-10
+++ hr=12
++++ date --utc '--date=20161112 12 UTC +24 hours' +%Y%m%d%H
+++ FDTG=2016111312
++++ printf %2.2i 5
+++ num=05
+++ ln -s restart005.a10 restart.ww3
+++ /home/ec2-user/WW3-4.18/model/exe/spec_rft
+  
+  Wavewatch III spectral reformatting program 
+  version 1.2  October 2003          
+  
+  Input Date Time Group 
+  
+  Date Time Group 2016111312
+  Grid Name: NW Atlantic 10 min wave grid  
+  Grid dimensions:          301         331
+  Number of sea points:        28273
+  Number of frequency bins in spectra           36
+  Number of directional bins in spectra           36
+  
+  max wave ht    3.40693998    
+++ ls -l J2016111312
+-rw-rw-r-- 1 ec2-user ec2-user 73283616 Nov 14 05:37 J2016111312
++++ ls -l J2016111312
++++ awk '{print $5}'
+++ FS=73283616
+++ '[' 73283616 -ge 43183200 ']'
+++ chmod 777 J2016111312
+++ cp J2016111312 J2016111212_24_a10
+++ ((  JNUM=JNUM+1  ))
+++ rm J2016111312 restart.ww3
+++ ((  FN=NUM*6  ))
+++ ((  NUM=NUM+1  ))
+++ (( 30 <= 24 ))
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6'
+++ rm mod_def.ww3
+++ ln -s mod_def.g30 mod_def.ww3
+++ rm out_grd.ww3
+rm: cannot remove `out_grd.ww3': No such file or directory
+++ ln -s out_grd.g30 out_grd.ww3
+++ cat
+++ /home/ec2-user/WW3-4.18/model/exe/gx_outf
+
+               *** WAVEWATCH III GrADS field output postp. ***   
+            =====================================================
+
+  Comment character is '$'
+
+  Grid name : global_720x361                
+
+  Fields in file : 
+ --------------------------
+      Water depth         
+      Current vel.        
+      Wind speed          
+      Wave height         
+      Mean wave period(-1)
+      Peak frequency      
+      Peak direction      
+      Part. wave heigt    
+      Part. peak period   
+      Part. mean direction
+
+  Output time data : 
+ -----------------------------------------------------
+      First time         : 2016/11/12 12:00:00 UTC
+      Interval           :            03:00:00    
+      Number of requests :  999
+            Fields   : Water depth         
+                       Current vel.        
+                       Wind speed          
+                       Wave height         
+                       Mean wave period(-1)
+                       Peak frequency      
+                       Peak direction      
+                       Part. wave heigt    
+                       Part. peak period   
+                       Part. mean direction
+
+  Requested output fields : 
+ -----------------------------------------------------
+      Water depth           
+      Current vel.          
+      Wind speed            
+      Wave height           
+      Mean wave period(-1)  
+      Peak frequency        
+      Peak direction        
+      Part. wave heigt      
+      Part. peak period     
+      Part. mean direction  
+
+  Requested discrete grid ranges : 
+ -----------------------------------------------------
+      Longitudes         :      1   720
+      lattidutes         :      1   361
+      Opening file ww3.grads
+      Sea points in mask :      YES/--
+      Bound. pts. in mask:      YES/--
+
+
+  Generating file 
+ -----------------------------------------------------
+      Data for 2016/11/12 12:00:00 UTC
+      Data for 2016/11/12 15:00:00 UTC
+      Data for 2016/11/12 18:00:00 UTC
+      Data for 2016/11/12 21:00:00 UTC
+      Data for 2016/11/13 00:00:00 UTC
+      Data for 2016/11/13 03:00:00 UTC
+      Data for 2016/11/13 06:00:00 UTC
+      Data for 2016/11/13 09:00:00 UTC
+      Data for 2016/11/13 12:00:00 UTC
+
+      End of file reached 
+
+
+
+  Final file management 
+ -----------------------------------------------------
+      Closing file ww3.grads
+      Opening file ww3.ctl
+         Number of times :      9
+         Initial time ID : 12:00Z12NOV2016
+         Time step ID    :  3HR
+
+  End of program 
+ =========================================
+         WAVEWATCH III GrADS field output 
+
+++ mv ww3.grads ww3_grads.g30
+++ mv ww3.ctl ww3_ctl.g30
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6'
+++ rm mod_def.ww3
+++ ln -s mod_def.w10 mod_def.ww3
+++ rm out_grd.ww3
+++ ln -s out_grd.w10 out_grd.ww3
+++ cat
+++ /home/ec2-user/WW3-4.18/model/exe/gx_outf
+
+               *** WAVEWATCH III GrADS field output postp. ***   
+            =====================================================
+
+  Comment character is '$'
+
+  Grid name : West Coast 10 min wave grid   
+
+  Fields in file : 
+ --------------------------
+      Water depth         
+      Current vel.        
+      Wind speed          
+      Wave height         
+      Mean wave period(-1)
+      Peak frequency      
+      Peak direction      
+      Part. wave heigt    
+      Part. peak period   
+      Part. mean direction
+
+  Output time data : 
+ -----------------------------------------------------
+      First time         : 2016/11/12 12:00:00 UTC
+      Interval           :            03:00:00    
+      Number of requests :  999
+            Fields   : Water depth         
+                       Current vel.        
+                       Wind speed          
+                       Wave height         
+                       Mean wave period(-1)
+                       Peak frequency      
+                       Peak direction      
+                       Part. wave heigt    
+                       Part. peak period   
+                       Part. mean direction
+
+  Requested output fields : 
+ -----------------------------------------------------
+      Water depth           
+      Current vel.          
+      Wind speed            
+      Wave height           
+      Mean wave period(-1)  
+      Peak frequency        
+      Peak direction        
+      Part. wave heigt      
+      Part. peak period     
+      Part. mean direction  
+
+  Requested discrete grid ranges : 
+ -----------------------------------------------------
+      Longitudes         :      1   241
+      lattidutes         :      1   151
+      Opening file ww3.grads
+      Sea points in mask :      YES/--
+      Bound. pts. in mask:      YES/--
+
+
+  Generating file 
+ -----------------------------------------------------
+      Data for 2016/11/12 12:00:00 UTC
+      Data for 2016/11/12 15:00:00 UTC
+      Data for 2016/11/12 18:00:00 UTC
+      Data for 2016/11/12 21:00:00 UTC
+      Data for 2016/11/13 00:00:00 UTC
+      Data for 2016/11/13 03:00:00 UTC
+      Data for 2016/11/13 06:00:00 UTC
+      Data for 2016/11/13 09:00:00 UTC
+      Data for 2016/11/13 12:00:00 UTC
+
+      End of file reached 
+
+
+
+  Final file management 
+ -----------------------------------------------------
+      Closing file ww3.grads
+      Opening file ww3.ctl
+         Number of times :      9
+         Initial time ID : 12:00Z12NOV2016
+         Time step ID    :  3HR
+
+  End of program 
+ =========================================
+         WAVEWATCH III GrADS field output 
+
+++ mv ww3.grads ww3_grads.w10
+++ mv ww3.ctl ww3_ctl.w10
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6'
+++ rm mod_def.ww3
+++ ln -s mod_def.a10 mod_def.ww3
+++ rm out_grd.ww3
+++ ln -s out_grd.a10 out_grd.ww3
+++ cat
+++ /home/ec2-user/WW3-4.18/model/exe/gx_outf
+
+               *** WAVEWATCH III GrADS field output postp. ***   
+            =====================================================
+
+  Comment character is '$'
+
+  Grid name : NW Atlantic 10 min wave grid  
+
+  Fields in file : 
+ --------------------------
+      Water depth         
+      Current vel.        
+      Wind speed          
+      Wave height         
+      Mean wave period(-1)
+      Peak frequency      
+      Peak direction      
+      Part. wave heigt    
+      Part. peak period   
+      Part. mean direction
+
+  Output time data : 
+ -----------------------------------------------------
+      First time         : 2016/11/12 12:00:00 UTC
+      Interval           :            03:00:00    
+      Number of requests :  999
+            Fields   : Water depth         
+                       Current vel.        
+                       Wind speed          
+                       Wave height         
+                       Mean wave period(-1)
+                       Peak frequency      
+                       Peak direction      
+                       Part. wave heigt    
+                       Part. peak period   
+                       Part. mean direction
+
+  Requested output fields : 
+ -----------------------------------------------------
+      Water depth           
+      Current vel.          
+      Wind speed            
+      Wave height           
+      Mean wave period(-1)  
+      Peak frequency        
+      Peak direction        
+      Part. wave heigt      
+      Part. peak period     
+      Part. mean direction  
+
+  Requested discrete grid ranges : 
+ -----------------------------------------------------
+      Longitudes         :      1   301
+      lattidutes         :      1   331
+      Opening file ww3.grads
+      Sea points in mask :      YES/--
+      Bound. pts. in mask:      YES/--
+
+
+  Generating file 
+ -----------------------------------------------------
+      Data for 2016/11/12 12:00:00 UTC
+      Data for 2016/11/12 15:00:00 UTC
+      Data for 2016/11/12 18:00:00 UTC
+      Data for 2016/11/12 21:00:00 UTC
+      Data for 2016/11/13 00:00:00 UTC
+      Data for 2016/11/13 03:00:00 UTC
+      Data for 2016/11/13 06:00:00 UTC
+      Data for 2016/11/13 09:00:00 UTC
+      Data for 2016/11/13 12:00:00 UTC
+
+      End of file reached 
+
+
+
+  Final file management 
+ -----------------------------------------------------
+      Closing file ww3.grads
+      Opening file ww3.ctl
+         Number of times :      9
+         Initial time ID : 12:00Z12NOV2016
+         Time step ID    :  3HR
+
+  End of program 
+ =========================================
+         WAVEWATCH III GrADS field output 
+
+++ mv ww3.grads ww3_grads.a10
+++ mv ww3.ctl ww3_ctl.a10
+++ rm gx_outf.inp ww3_multi.inp ww3_prep.inp 'ww3.*' log.mww3 '*.gif' hs2016111218.dat hs2016111300.dat hs2016111306.dat hs2016111312.dat ice_unform.ww3 mod_def.ww3 out_grd.ww3 wind_unform.ww3 'nest*' restart001.a10 restart001.g30 restart001.w10 restart002.a10 restart002.g30 restart002.w10 restart003.a10 restart003.g30 restart003.w10 restart004.a10 restart004.g30 restart004.w10 restart005.a10 restart005.g30 restart005.w10
+rm: cannot remove `ww3.*': No such file or directory
+rm: cannot remove `*.gif': No such file or directory
+rm: cannot remove `nest*': No such file or directory
+++ rm 'current.*' ice.a10 ice.g30 ice.w10 '*.asc' out_grd.a10 out_grd.g30 out_grd.w10 '*.gs'
+rm: cannot remove `current.*': No such file or directory
+rm: cannot remove `*.asc': No such file or directory
+rm: cannot remove `*.gs': No such file or directory
+++ rm log.a10 log.g30 log.w10 mod_def.a10 mod_def.g30 mod_def.w10 wind.a10 wind.g30 wind.w10
+++ cd /home/ec2-user
+++ rmdir /tmp/space/rundir/2016111212
+rmdir: failed to remove `/tmp/space/rundir/2016111212': Directory not empty
+++ find /home/ec2-user/restart/a10/2016111212/restart_2016111218.a10 /home/ec2-user/restart/a10/2016111212/restart_2016111300.a10 /home/ec2-user/restart/a10/2016111212/restart_2016111306.a10 /home/ec2-user/restart/a10/2016111212/restart_2016111312.a10 /home/ec2-user/restart/g30/2016111212/restart_2016111218.g30 /home/ec2-user/restart/g30/2016111212/restart_2016111300.g30 /home/ec2-user/restart/g30/2016111212/restart_2016111306.g30 /home/ec2-user/restart/g30/2016111212/restart_2016111312.g30 /home/ec2-user/restart/w10/2016111212/restart_2016111218.w10 /home/ec2-user/restart/w10/2016111212/restart_2016111300.w10 /home/ec2-user/restart/w10/2016111212/restart_2016111306.w10 /home/ec2-user/restart/w10/2016111212/restart_2016111312.w10 -mtime +1 -exec rm -f '{}' ';'
+++ find /home/ec2-user/restart/a10/2016111212/log.a10 /home/ec2-user/restart/a10/2016111212/log.mww3 /home/ec2-user/restart/g30/2016111212/log.g30 /home/ec2-user/restart/g30/2016111212/log.mww3 /home/ec2-user/restart/w10/2016111212/log.mww3 /home/ec2-user/restart/w10/2016111212/log.w10 -mtime +1 -exec rm -f '{}' ';'
+++ exit
+++ echo ' start file transter '
+ start file transter 
+++ date
+Mon Nov 14 05:38:25 UTC 2016
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6' '$NEST7'
+++ scp-from-node WW3_development 1 '/tmp/space/rundir/2016111212/J2016111212*g30' .
+++ scp-from-node WW3_development 1 /tmp/space/rundir/2016111212/ww3_grads.g30 .
+++ scp-from-node WW3_development 1 /tmp/space/rundir/2016111212/ww3_ctl.g30 .
+++ scp-from-node WW3_development 1 '/tmp/space/rundir/2016111212/hs2016111212*g30.dat' .
+scp: /tmp/space/rundir/2016111212/hs2016111212*g30.dat: No such file or directory
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6' '$NEST7'
+++ scp-from-node WW3_development 1 '/tmp/space/rundir/2016111212/J2016111212*wna' .
+scp: /tmp/space/rundir/2016111212/J2016111212*wna: No such file or directory
+++ scp-from-node WW3_development 1 /tmp/space/rundir/2016111212/ww3_grads.wna .
+scp: /tmp/space/rundir/2016111212/ww3_grads.wna: No such file or directory
+++ scp-from-node WW3_development 1 /tmp/space/rundir/2016111212/ww3_ctl.wna .
+scp: /tmp/space/rundir/2016111212/ww3_ctl.wna: No such file or directory
+++ scp-from-node WW3_development 1 '/tmp/space/rundir/2016111212/hs2016111212*wna.dat' .
+scp: /tmp/space/rundir/2016111212/hs2016111212*wna.dat: No such file or directory
+++ for NEST in '$NEST1' '$NEST2' '$NEST3' '$NEST4' '$NEST5' '$NEST6' '$NEST7'
+++ scp-from-node WW3_development 1 '/tmp/space/rundir/2016111212/J2016111212*enp' .
+scp: /tmp/space/rundir/2016111212/J2016111212*enp: No such file or directory
+++ scp-from-node WW3_development 1 /tmp/space/rundir/2016111212/ww3_grads.enp .
+scp: /tmp/space/rundir/2016111212/ww3_grads.enp: No such file or directory
+++ scp-from-node WW3_development 1 /tmp/space/rundir/2016111212/ww3_ctl.enp .
+scp: /tmp/space/rundir/2016111212/ww3_ctl.enp: No such file or directory
+++ scp-from-node WW3_development 1 '/tmp/space/rundir/2016111212/hs2016111212*enp.dat' .
+scp: /tmp/space/rundir/2016111212/hs2016111212*enp.dat: No such file or directory
+++ echo ' finish file transfer '
+ finish file transfer 
+++ date
+Mon Nov 14 05:38:40 UTC 2016
+++ stop-cluster WW3_development
+05:38:40   Stopping cluster WW3_development
+++ echo 2016111212
+++ for NEST in '$NEST1' '$NEST2' '$NEST3'
+++ ZNEST=g3z
+++ rm '/ocean/aws/Jfiles/g3z2016111206/J*'
+rm: cannot remove ‘/ocean/aws/Jfiles/g3z2016111206/J*’: No such file or directory
+++ rmdir /ocean/aws/Jfiles/g3z2016111206
+rmdir: failed to remove ‘/ocean/aws/Jfiles/g3z2016111206’: No such file or directory
+++ mkdir /ocean/aws/Jfiles/g3z2016111212
+++ typeset -i FN
+++ FN=6
+++ (( 6 <= 24 ))
+++ cp J2016111212_6_g30 /ocean/aws/Jfiles/g3z2016111212/J2016111212_6
+++ echo J2016111212_6
+J2016111212_6
+++ cp hs2016111212_6_g30.dat /ocean/aws/hs_files/g3z/hs2016111212_6.dat
+cp: cannot stat ‘hs2016111212_6_g30.dat’: No such file or directory
+++ rm J2016111212_6_g30 hs2016111212_6_g30.dat
+rm: cannot remove ‘hs2016111212_6_g30.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 12 <= 24 ))
+++ cp J2016111212_12_g30 /ocean/aws/Jfiles/g3z2016111212/J2016111212_12
+++ echo J2016111212_12
+J2016111212_12
+++ cp hs2016111212_12_g30.dat /ocean/aws/hs_files/g3z/hs2016111212_12.dat
+cp: cannot stat ‘hs2016111212_12_g30.dat’: No such file or directory
+++ rm J2016111212_12_g30 hs2016111212_12_g30.dat
+rm: cannot remove ‘hs2016111212_12_g30.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 18 <= 24 ))
+++ cp J2016111212_18_g30 /ocean/aws/Jfiles/g3z2016111212/J2016111212_18
+++ echo J2016111212_18
+J2016111212_18
+++ cp hs2016111212_18_g30.dat /ocean/aws/hs_files/g3z/hs2016111212_18.dat
+cp: cannot stat ‘hs2016111212_18_g30.dat’: No such file or directory
+++ rm J2016111212_18_g30 hs2016111212_18_g30.dat
+rm: cannot remove ‘hs2016111212_18_g30.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 24 <= 24 ))
+++ cp J2016111212_24_g30 /ocean/aws/Jfiles/g3z2016111212/J2016111212_24
+++ echo J2016111212_24
+J2016111212_24
+++ cp hs2016111212_24_g30.dat /ocean/aws/hs_files/g3z/hs2016111212_24.dat
+cp: cannot stat ‘hs2016111212_24_g30.dat’: No such file or directory
+++ rm J2016111212_24_g30 hs2016111212_24_g30.dat
+rm: cannot remove ‘hs2016111212_24_g30.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 30 <= 24 ))
+++ rm /ocean/latest_g3z
+++ ln -sf /ocean/aws/Jfiles/g3z2016111212 /ocean/latest_g3z
+++ chmod 777 /ocean/latest_g3z
+++ sed -i 's/ww3.grads/^ww3.grads/g' ww3_ctl.g30
+++ sed -i /big_endian/d ww3_ctl.g30
+++ sed -i 's/sequential/sequential big_endian/g' ww3_ctl.g30
+++ cp ww3_grads.g30 /ocean/aws/grads/g3z/ww3.grads
+++ cp ww3_ctl.g30 /ocean/aws/grads/g3z/ww3.ctl
+++ cat ww3_ctl.g30
+DSET      ^ww3.grads
+TITLE     WAVEWATCH III gridded data
+OPTIONS   sequential big_endian
+UNDEF      -999.9
+XDEF      720  LINEAR      0.00000     0.50000
+YDEF      361  LINEAR    -90.00000     0.50000
+ZDEF        1  LINEAR   1000.00000     1.00000
+TDEF        9  LINEAR     12:00Z12NOV2016   3HR
+VARS       19
+ MAP     0  99  grid use map   
+ dpt     0  99  Water depth    
+ ucur    0  99  Current U (m/s)
+ vcur    0  99  Current V (m/s)
+ uwnd    0  99  Wind U (m/s)   
+ vwnd    0  99  Wind V (m/s)   
+ hs      0  99  Wave height (m)
+ t01     0  99  Mean Per Tm (s)
+ fp      0  99  Peak Freq. (Hz)
+ dp      0  99  Peak Dir. (rad)
+ phs00   0  99  Part. Hs (m)   
+ phs01   0  99  Part. Hs (m)   
+ phs02   0  99  Part. Hs (m)   
+ ptp00   0  99  Part. Tp (s)   
+ ptp01   0  99  Part. Tp (s)   
+ ptp02   0  99  Part. Tp (s)   
+ pdi00   0  99  Part. Th (deg.)
+ pdi01   0  99  Part. Th (deg.)
+ pdi02   0  99  Part. Th (deg.)
+ENDVARS
+++ case $NEST in
+++ X=720
+++ Y=361
+++ LON=0
+++ LAT=-90
+++ DX=1
+++ DY=1
+++ TTL=Global
+++ TAUINC=12
+++ (( TE=TAUE/TAUINC+1 ))
+++ echo TE 3
+TE 3
+++ (( SKIP=TAUINC/3 ))
+++ cat
+++ cat ww3.gs
+*
+*  grads script to plot WW3 fields
+*
+  'open ww3_ctl.g30'
+*
+*  Set color levels and indices for shading
+*
+  meters="[m]"
+  feet="[ft]"
+  knots="[knots]"
+*
+* loop over output times
+*
+t=1
+te=3
+while(t<=te)
+  'c'
+  'set dfile 1'
+  'set t 't
+  'q time'
+  vtime=subwrd(result,3)
+  tau=(t-1)*12
+  colndx='.5 1 1.5 2 2.5 3 3.5 4 5 6 7 8 10'
+  'set map 1 1 3'
+  'set gxout shaded'
+  'set clevs 'colndx
+  'd hs'
+
+  'run cbarn'
+  'basemap L 87'
+
+  'set gxout barb'
+  'set ccolor 1'
+  skp=5
+  'd skip(uwnd,'skp','skp');vwnd*1.94'
+  'draw title 'Global' 'Wave' 'Heights' 'meters' 'and' 'Surface' 'Winds' 'knots'\ 'tau' 'Hr' 'Forecast' 'from' '2016111212' 'Valid' 'vtime
+*
+*  for hard copy output
+*
+  pfn='g30_wnd_'tau'.gif'
+  'printim 'pfn' x700 y550 white'
+*
+* plot peak period
+*
+  'c'
+  'set gxout shaded'
+  colndx='5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20'
+  'set clevs 'colndx
+* 'set ccols 'colevs
+  'd t01'
+
+  'run cbarn'
+  'basemap L 87'
+
+  'set gxout vector'
+  'set cthick 3'
+  'set ccolor 1'
+  'set arrscl 0.15'
+  'define wamv=-cos(dp)*t01'
+  'define wamu=-sin(dp)*t01'
+  'define umsk = maskout(wamu,hs-0.1)'
+  skp=5
+  'd skip(umsk,'skp','skp');wamv'
+  'undefine wamu'
+  'undefine wamv'
+  'undefine umsk'
+
+  'draw title 'Global' 'Wave' 'Period' 'sec' 'and' 'Direction'\'tau' 'Hr' 'Forecast' 'from' '2016111212' 'Valid' 'vtime
+*
+*  for hard copy output
+*
+  pfn='g30_per_'tau'.gif'
+  'printim 'pfn' x700 y550 white'
+t=t+1
+endwhile
+'quit'
+++ export GADDIR=/home/wave/lib
+++ GADDIR=/home/wave/lib
+++ cp ww3_grads.g30 ww3.grads
+++ cp /home/wave/lib/cbarn.gs .
+++ cp /home/wave/lib/basemap.gs .
+++ cp /home/wave/lib/lpoly_lowres.asc .
+++ grads -lbc 'run ww3.gs' -g 900x600+0
+
+Grid Analysis and Display System (GrADS) Version 2.0.2
+Copyright (c) 1988-2011 by Brian Doty and the
+Institute for Global Environment and Society (IGES)
+GrADS comes with ABSOLUTELY NO WARRANTY
+See file COPYRIGHT for more information
+
+Config: v2.0.2 little-endian readline printim grib2 netcdf hdf4-sds hdf5 opendap-grids geotiff shapefile
+Issue 'q config' command for more detailed configuration information
+GX Package Initialization: Size = 11 8.5 
+Running in Batch mode
+No hardcopy metafile open
+GX package terminated 
++++ date
+++ SYSDTG='Mon Nov 14 05:38:59 UTC 2016'
+++ cat
+++ cp g30.html /ocean/transfer/ww3_ncep/g30
+++ rm /ocean/transfer/ww3_ncep/g30/g30_per_2016111206_t00.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111206_t12.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111206_t24.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111206_t00.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111206_t12.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111206_t24.gif
+++ cp g30_wnd_0.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t00.gif
+++ cp g30_per_0.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t00.gif
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_12.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t12.gif
+++ cp g30_per_12.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t12.gif
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_24.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t24.gif
+++ cp g30_per_24.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t24.gif
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_36.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t36.gif
+cp: cannot stat ‘g30_wnd_36.gif’: No such file or directory
+++ cp g30_per_36.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t36.gif
+cp: cannot stat ‘g30_per_36.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_48.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t48.gif
+cp: cannot stat ‘g30_wnd_48.gif’: No such file or directory
+++ cp g30_per_48.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t48.gif
+cp: cannot stat ‘g30_per_48.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_60.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t60.gif
+cp: cannot stat ‘g30_wnd_60.gif’: No such file or directory
+++ cp g30_per_60.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t60.gif
+cp: cannot stat ‘g30_per_60.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_72.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t72.gif
+cp: cannot stat ‘g30_wnd_72.gif’: No such file or directory
+++ cp g30_per_72.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t72.gif
+cp: cannot stat ‘g30_per_72.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_84.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t84.gif
+cp: cannot stat ‘g30_wnd_84.gif’: No such file or directory
+++ cp g30_per_84.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t84.gif
+cp: cannot stat ‘g30_per_84.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_96.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t96.gif
+cp: cannot stat ‘g30_wnd_96.gif’: No such file or directory
+++ cp g30_per_96.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t96.gif
+cp: cannot stat ‘g30_per_96.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_108.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t108.gif
+cp: cannot stat ‘g30_wnd_108.gif’: No such file or directory
+++ cp g30_per_108.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t108.gif
+cp: cannot stat ‘g30_per_108.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_120.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t120.gif
+cp: cannot stat ‘g30_wnd_120.gif’: No such file or directory
+++ cp g30_per_120.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t120.gif
+cp: cannot stat ‘g30_per_120.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_132.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t132.gif
+cp: cannot stat ‘g30_wnd_132.gif’: No such file or directory
+++ cp g30_per_132.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t132.gif
+cp: cannot stat ‘g30_per_132.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_144.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t144.gif
+cp: cannot stat ‘g30_wnd_144.gif’: No such file or directory
+++ cp g30_per_144.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t144.gif
+cp: cannot stat ‘g30_per_144.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_156.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t156.gif
+cp: cannot stat ‘g30_wnd_156.gif’: No such file or directory
+++ cp g30_per_156.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t156.gif
+cp: cannot stat ‘g30_per_156.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_168.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t168.gif
+cp: cannot stat ‘g30_wnd_168.gif’: No such file or directory
+++ cp g30_per_168.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t168.gif
+cp: cannot stat ‘g30_per_168.gif’: No such file or directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp g30_wnd_180.gif /ocean/transfer/ww3_ncep/g30/g30_wnd_2016111212_t180.gif
+cp: cannot stat ‘g30_wnd_180.gif’: No such file or directory
+++ cp g30_per_180.gif /ocean/transfer/ww3_ncep/g30/g30_per_2016111212_t180.gif
+cp: cannot stat ‘g30_per_180.gif’: No such file or directory
+++ for NEST in '$NEST1' '$NEST2' '$NEST3'
+++ ZNEST=wnz
+++ rm '/ocean/aws/Jfiles/wnz2016111206/J*'
+rm: cannot remove ‘/ocean/aws/Jfiles/wnz2016111206/J*’: No such file or directory
+++ rmdir /ocean/aws/Jfiles/wnz2016111206
+rmdir: failed to remove ‘/ocean/aws/Jfiles/wnz2016111206’: No such file or directory
+++ mkdir /ocean/aws/Jfiles/wnz2016111212
+++ typeset -i FN
+++ FN=6
+++ (( 6 <= 24 ))
+++ cp J2016111212_6_wna /ocean/aws/Jfiles/wnz2016111212/J2016111212_6
+cp: cannot stat ‘J2016111212_6_wna’: No such file or directory
+++ echo J2016111212_6
+J2016111212_6
+++ cp hs2016111212_6_wna.dat /ocean/aws/hs_files/wnz/hs2016111212_6.dat
+cp: cannot stat ‘hs2016111212_6_wna.dat’: No such file or directory
+++ rm J2016111212_6_wna hs2016111212_6_wna.dat
+rm: cannot remove ‘J2016111212_6_wna’: No such file or directory
+rm: cannot remove ‘hs2016111212_6_wna.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 12 <= 24 ))
+++ cp J2016111212_12_wna /ocean/aws/Jfiles/wnz2016111212/J2016111212_12
+cp: cannot stat ‘J2016111212_12_wna’: No such file or directory
+++ echo J2016111212_12
+J2016111212_12
+++ cp hs2016111212_12_wna.dat /ocean/aws/hs_files/wnz/hs2016111212_12.dat
+cp: cannot stat ‘hs2016111212_12_wna.dat’: No such file or directory
+++ rm J2016111212_12_wna hs2016111212_12_wna.dat
+rm: cannot remove ‘J2016111212_12_wna’: No such file or directory
+rm: cannot remove ‘hs2016111212_12_wna.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 18 <= 24 ))
+++ cp J2016111212_18_wna /ocean/aws/Jfiles/wnz2016111212/J2016111212_18
+cp: cannot stat ‘J2016111212_18_wna’: No such file or directory
+++ echo J2016111212_18
+J2016111212_18
+++ cp hs2016111212_18_wna.dat /ocean/aws/hs_files/wnz/hs2016111212_18.dat
+cp: cannot stat ‘hs2016111212_18_wna.dat’: No such file or directory
+++ rm J2016111212_18_wna hs2016111212_18_wna.dat
+rm: cannot remove ‘J2016111212_18_wna’: No such file or directory
+rm: cannot remove ‘hs2016111212_18_wna.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 24 <= 24 ))
+++ cp J2016111212_24_wna /ocean/aws/Jfiles/wnz2016111212/J2016111212_24
+cp: cannot stat ‘J2016111212_24_wna’: No such file or directory
+++ echo J2016111212_24
+J2016111212_24
+++ cp hs2016111212_24_wna.dat /ocean/aws/hs_files/wnz/hs2016111212_24.dat
+cp: cannot stat ‘hs2016111212_24_wna.dat’: No such file or directory
+++ rm J2016111212_24_wna hs2016111212_24_wna.dat
+rm: cannot remove ‘J2016111212_24_wna’: No such file or directory
+rm: cannot remove ‘hs2016111212_24_wna.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 30 <= 24 ))
+++ rm /ocean/latest_wnz
+++ ln -sf /ocean/aws/Jfiles/wnz2016111212 /ocean/latest_wnz
+++ chmod 777 /ocean/latest_wnz
+++ sed -i 's/ww3.grads/^ww3.grads/g' ww3_ctl.wna
+sed: can't read ww3_ctl.wna: No such file or directory
+++ sed -i /big_endian/d ww3_ctl.wna
+sed: can't read ww3_ctl.wna: No such file or directory
+++ sed -i 's/sequential/sequential big_endian/g' ww3_ctl.wna
+sed: can't read ww3_ctl.wna: No such file or directory
+++ cp ww3_grads.wna /ocean/aws/grads/wnz/ww3.grads
+cp: cannot stat ‘ww3_grads.wna’: No such file or directory
+++ cp ww3_ctl.wna /ocean/aws/grads/wnz/ww3.ctl
+cp: cannot stat ‘ww3_ctl.wna’: No such file or directory
+++ cat ww3_ctl.wna
+cat: ww3_ctl.wna: No such file or directory
+++ case $NEST in
+++ TAUINC=12
+++ (( TE=TAUE/TAUINC+1 ))
+++ echo TE 3
+TE 3
+++ (( SKIP=TAUINC/3 ))
+++ cat
+++ cat ww3.gs
+*
+*  grads script to plot WW3 fields
+*
+  'open ww3_ctl.wna'
+*
+*  Set color levels and indices for shading
+*
+  meters="[m]"
+  feet="[ft]"
+  knots="[knots]"
+*
+* loop over output times
+*
+t=1
+te=3
+while(t<=te)
+  'c'
+  'set dfile 1'
+  'set t 't
+  'q time'
+  vtime=subwrd(result,3)
+  tau=(t-1)*12
+  colndx='.5 1 1.5 2 2.5 3 3.5 4 5 6 7 8 10'
+  'set map 1 1 3'
+  'set gxout shaded'
+  'set clevs 'colndx
+  'd hs'
+
+  'run cbarn'
+  'basemap L 87'
+
+  'set gxout barb'
+  'set ccolor 1'
+  skp=5
+  'd skip(uwnd,'skp','skp');vwnd*1.94'
+  'draw title 'Global' 'Wave' 'Heights' 'meters' 'and' 'Surface' 'Winds' 'knots'\ 'tau' 'Hr' 'Forecast' 'from' '2016111212' 'Valid' 'vtime
+*
+*  for hard copy output
+*
+  pfn='wna_wnd_'tau'.gif'
+  'printim 'pfn' x700 y550 white'
+*
+* plot peak period
+*
+  'c'
+  'set gxout shaded'
+  colndx='5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20'
+  'set clevs 'colndx
+* 'set ccols 'colevs
+  'd t01'
+
+  'run cbarn'
+  'basemap L 87'
+
+  'set gxout vector'
+  'set cthick 3'
+  'set ccolor 1'
+  'set arrscl 0.15'
+  'define wamv=-cos(dp)*t01'
+  'define wamu=-sin(dp)*t01'
+  'define umsk = maskout(wamu,hs-0.1)'
+  skp=5
+  'd skip(umsk,'skp','skp');wamv'
+  'undefine wamu'
+  'undefine wamv'
+  'undefine umsk'
+
+  'draw title 'Global' 'Wave' 'Period' 'sec' 'and' 'Direction'\'tau' 'Hr' 'Forecast' 'from' '2016111212' 'Valid' 'vtime
+*
+*  for hard copy output
+*
+  pfn='wna_per_'tau'.gif'
+  'printim 'pfn' x700 y550 white'
+t=t+1
+endwhile
+'quit'
+++ export GADDIR=/home/wave/lib
+++ GADDIR=/home/wave/lib
+++ cp ww3_grads.wna ww3.grads
+cp: cannot stat ‘ww3_grads.wna’: No such file or directory
+++ cp /home/wave/lib/cbarn.gs .
+++ cp /home/wave/lib/basemap.gs .
+++ cp /home/wave/lib/lpoly_lowres.asc .
+++ grads -lbc 'run ww3.gs' -g 900x600+0
+
+Grid Analysis and Display System (GrADS) Version 2.0.2
+Copyright (c) 1988-2011 by Brian Doty and the
+Institute for Global Environment and Society (IGES)
+GrADS comes with ABSOLUTELY NO WARRANTY
+See file COPYRIGHT for more information
+
+Config: v2.0.2 little-endian readline printim grib2 netcdf hdf4-sds hdf5 opendap-grids geotiff shapefile
+Issue 'q config' command for more detailed configuration information
+GX Package Initialization: Size = 11 8.5 
+Running in Batch mode
+Open Error:  Can't open description file
+SET Error:  No files open yet
+SET Error:  No files open yet
+No Files Open
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DISPLAY error:  no file open yet
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DISPLAY error:  no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+SET Error:  No files open yet
+SET Error:  No files open yet
+No Files Open
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DISPLAY error:  no file open yet
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DISPLAY error:  no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+SET Error:  No files open yet
+SET Error:  No files open yet
+No Files Open
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DISPLAY error:  no file open yet
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DISPLAY error:  no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+No hardcopy metafile open
+GX package terminated 
++++ date
+++ SYSDTG='Mon Nov 14 05:38:59 UTC 2016'
+++ cat
+++ cp wna.html /ocean/transfer/ww3_ncep/wna
+++ rm '/ocean/transfer/ww3_ncep/wna/wna_*.gif'
+rm: cannot remove ‘/ocean/transfer/ww3_ncep/wna/wna_*.gif’: Not a directory
+++ cp wna_wnd_0.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t00.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t00.gif’: Not a directory
+++ cp wna_per_0.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t00.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t00.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_12.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t12.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t12.gif’: Not a directory
+++ cp wna_per_12.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t12.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t12.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_24.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t24.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t24.gif’: Not a directory
+++ cp wna_per_24.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t24.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t24.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_36.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t36.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t36.gif’: Not a directory
+++ cp wna_per_36.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t36.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t36.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_48.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t48.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t48.gif’: Not a directory
+++ cp wna_per_48.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t48.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t48.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_60.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t60.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t60.gif’: Not a directory
+++ cp wna_per_60.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t60.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t60.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_72.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t72.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t72.gif’: Not a directory
+++ cp wna_per_72.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t72.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t72.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_84.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t84.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t84.gif’: Not a directory
+++ cp wna_per_84.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t84.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t84.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_96.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t96.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t96.gif’: Not a directory
+++ cp wna_per_96.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t96.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t96.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_108.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t108.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t108.gif’: Not a directory
+++ cp wna_per_108.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t108.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t108.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_120.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t120.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t120.gif’: Not a directory
+++ cp wna_per_120.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t120.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t120.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_132.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t132.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t132.gif’: Not a directory
+++ cp wna_per_132.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t132.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t132.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_144.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t144.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t144.gif’: Not a directory
+++ cp wna_per_144.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t144.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t144.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_156.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t156.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t156.gif’: Not a directory
+++ cp wna_per_156.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t156.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t156.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_168.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t168.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t168.gif’: Not a directory
+++ cp wna_per_168.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t168.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t168.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp wna_wnd_180.gif /ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t180.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_wnd_2016111212_t180.gif’: Not a directory
+++ cp wna_per_180.gif /ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t180.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/wna/wna_per_2016111212_t180.gif’: Not a directory
+++ for NEST in '$NEST1' '$NEST2' '$NEST3'
+++ ZNEST=enz
+++ rm '/ocean/aws/Jfiles/enz2016111206/J*'
+rm: cannot remove ‘/ocean/aws/Jfiles/enz2016111206/J*’: No such file or directory
+++ rmdir /ocean/aws/Jfiles/enz2016111206
+rmdir: failed to remove ‘/ocean/aws/Jfiles/enz2016111206’: No such file or directory
+++ mkdir /ocean/aws/Jfiles/enz2016111212
+++ typeset -i FN
+++ FN=6
+++ (( 6 <= 24 ))
+++ cp J2016111212_6_enp /ocean/aws/Jfiles/enz2016111212/J2016111212_6
+cp: cannot stat ‘J2016111212_6_enp’: No such file or directory
+++ echo J2016111212_6
+J2016111212_6
+++ cp hs2016111212_6_enp.dat /ocean/aws/hs_files/enz/hs2016111212_6.dat
+cp: cannot stat ‘hs2016111212_6_enp.dat’: No such file or directory
+++ rm J2016111212_6_enp hs2016111212_6_enp.dat
+rm: cannot remove ‘J2016111212_6_enp’: No such file or directory
+rm: cannot remove ‘hs2016111212_6_enp.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 12 <= 24 ))
+++ cp J2016111212_12_enp /ocean/aws/Jfiles/enz2016111212/J2016111212_12
+cp: cannot stat ‘J2016111212_12_enp’: No such file or directory
+++ echo J2016111212_12
+J2016111212_12
+++ cp hs2016111212_12_enp.dat /ocean/aws/hs_files/enz/hs2016111212_12.dat
+cp: cannot stat ‘hs2016111212_12_enp.dat’: No such file or directory
+++ rm J2016111212_12_enp hs2016111212_12_enp.dat
+rm: cannot remove ‘J2016111212_12_enp’: No such file or directory
+rm: cannot remove ‘hs2016111212_12_enp.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 18 <= 24 ))
+++ cp J2016111212_18_enp /ocean/aws/Jfiles/enz2016111212/J2016111212_18
+cp: cannot stat ‘J2016111212_18_enp’: No such file or directory
+++ echo J2016111212_18
+J2016111212_18
+++ cp hs2016111212_18_enp.dat /ocean/aws/hs_files/enz/hs2016111212_18.dat
+cp: cannot stat ‘hs2016111212_18_enp.dat’: No such file or directory
+++ rm J2016111212_18_enp hs2016111212_18_enp.dat
+rm: cannot remove ‘J2016111212_18_enp’: No such file or directory
+rm: cannot remove ‘hs2016111212_18_enp.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 24 <= 24 ))
+++ cp J2016111212_24_enp /ocean/aws/Jfiles/enz2016111212/J2016111212_24
+cp: cannot stat ‘J2016111212_24_enp’: No such file or directory
+++ echo J2016111212_24
+J2016111212_24
+++ cp hs2016111212_24_enp.dat /ocean/aws/hs_files/enz/hs2016111212_24.dat
+cp: cannot stat ‘hs2016111212_24_enp.dat’: No such file or directory
+++ rm J2016111212_24_enp hs2016111212_24_enp.dat
+rm: cannot remove ‘J2016111212_24_enp’: No such file or directory
+rm: cannot remove ‘hs2016111212_24_enp.dat’: No such file or directory
+++ ((  FN=FN+6  ))
+++ (( 30 <= 24 ))
+++ rm /ocean/latest_enz
+++ ln -sf /ocean/aws/Jfiles/enz2016111212 /ocean/latest_enz
+++ chmod 777 /ocean/latest_enz
+++ sed -i 's/ww3.grads/^ww3.grads/g' ww3_ctl.enp
+sed: can't read ww3_ctl.enp: No such file or directory
+++ sed -i /big_endian/d ww3_ctl.enp
+sed: can't read ww3_ctl.enp: No such file or directory
+++ sed -i 's/sequential/sequential big_endian/g' ww3_ctl.enp
+sed: can't read ww3_ctl.enp: No such file or directory
+++ cp ww3_grads.enp /ocean/aws/grads/enz/ww3.grads
+cp: cannot stat ‘ww3_grads.enp’: No such file or directory
+++ cp ww3_ctl.enp /ocean/aws/grads/enz/ww3.ctl
+cp: cannot stat ‘ww3_ctl.enp’: No such file or directory
+++ cat ww3_ctl.enp
+cat: ww3_ctl.enp: No such file or directory
+++ case $NEST in
+++ TAUINC=12
+++ (( TE=TAUE/TAUINC+1 ))
+++ echo TE 3
+TE 3
+++ (( SKIP=TAUINC/3 ))
+++ cat
+++ cat ww3.gs
+*
+*  grads script to plot WW3 fields
+*
+  'open ww3_ctl.enp'
+*
+*  Set color levels and indices for shading
+*
+  meters="[m]"
+  feet="[ft]"
+  knots="[knots]"
+*
+* loop over output times
+*
+t=1
+te=3
+while(t<=te)
+  'c'
+  'set dfile 1'
+  'set t 't
+  'q time'
+  vtime=subwrd(result,3)
+  tau=(t-1)*12
+  colndx='.5 1 1.5 2 2.5 3 3.5 4 5 6 7 8 10'
+  'set map 1 1 3'
+  'set gxout shaded'
+  'set clevs 'colndx
+  'd hs'
+
+  'run cbarn'
+  'basemap L 87'
+
+  'set gxout barb'
+  'set ccolor 1'
+  skp=5
+  'd skip(uwnd,'skp','skp');vwnd*1.94'
+  'draw title 'Global' 'Wave' 'Heights' 'meters' 'and' 'Surface' 'Winds' 'knots'\ 'tau' 'Hr' 'Forecast' 'from' '2016111212' 'Valid' 'vtime
+*
+*  for hard copy output
+*
+  pfn='enp_wnd_'tau'.gif'
+  'printim 'pfn' x700 y550 white'
+*
+* plot peak period
+*
+  'c'
+  'set gxout shaded'
+  colndx='5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20'
+  'set clevs 'colndx
+* 'set ccols 'colevs
+  'd t01'
+
+  'run cbarn'
+  'basemap L 87'
+
+  'set gxout vector'
+  'set cthick 3'
+  'set ccolor 1'
+  'set arrscl 0.15'
+  'define wamv=-cos(dp)*t01'
+  'define wamu=-sin(dp)*t01'
+  'define umsk = maskout(wamu,hs-0.1)'
+  skp=5
+  'd skip(umsk,'skp','skp');wamv'
+  'undefine wamu'
+  'undefine wamv'
+  'undefine umsk'
+
+  'draw title 'Global' 'Wave' 'Period' 'sec' 'and' 'Direction'\'tau' 'Hr' 'Forecast' 'from' '2016111212' 'Valid' 'vtime
+*
+*  for hard copy output
+*
+  pfn='enp_per_'tau'.gif'
+  'printim 'pfn' x700 y550 white'
+t=t+1
+endwhile
+'quit'
+++ export GADDIR=/home/wave/lib
+++ GADDIR=/home/wave/lib
+++ cp ww3_grads.enp ww3.grads
+cp: cannot stat ‘ww3_grads.enp’: No such file or directory
+++ cp /home/wave/lib/cbarn.gs .
+++ cp /home/wave/lib/basemap.gs .
+++ cp /home/wave/lib/lpoly_lowres.asc .
+++ grads -lbc 'run ww3.gs' -g 900x600+0
+
+Grid Analysis and Display System (GrADS) Version 2.0.2
+Copyright (c) 1988-2011 by Brian Doty and the
+Institute for Global Environment and Society (IGES)
+GrADS comes with ABSOLUTELY NO WARRANTY
+See file COPYRIGHT for more information
+
+Config: v2.0.2 little-endian readline printim grib2 netcdf hdf4-sds hdf5 opendap-grids geotiff shapefile
+Issue 'q config' command for more detailed configuration information
+GX Package Initialization: Size = 11 8.5 
+Running in Batch mode
+Open Error:  Can't open description file
+SET Error:  No files open yet
+SET Error:  No files open yet
+No Files Open
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DISPLAY error:  no file open yet
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DISPLAY error:  no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+SET Error:  No files open yet
+SET Error:  No files open yet
+No Files Open
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DISPLAY error:  no file open yet
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DISPLAY error:  no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+SET Error:  No files open yet
+SET Error:  No files open yet
+No Files Open
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DISPLAY error:  no file open yet
+DISPLAY error:  no file open yet
+Cannot plot color bar: No shading information
+You must display a variable before using basemap
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DEFINE error:  no file open yet
+DISPLAY error:  no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+DEFINE error: no file open yet
+No hardcopy metafile open
+GX package terminated 
++++ date
+++ SYSDTG='Mon Nov 14 05:39:00 UTC 2016'
+++ cat
+++ cp enp.html /ocean/transfer/ww3_ncep/enp
+++ rm '/ocean/transfer/ww3_ncep/enp/enp_*.gif'
+rm: cannot remove ‘/ocean/transfer/ww3_ncep/enp/enp_*.gif’: Not a directory
+++ cp enp_wnd_0.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t00.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t00.gif’: Not a directory
+++ cp enp_per_0.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t00.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t00.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_12.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t12.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t12.gif’: Not a directory
+++ cp enp_per_12.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t12.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t12.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_24.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t24.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t24.gif’: Not a directory
+++ cp enp_per_24.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t24.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t24.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_36.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t36.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t36.gif’: Not a directory
+++ cp enp_per_36.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t36.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t36.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_48.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t48.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t48.gif’: Not a directory
+++ cp enp_per_48.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t48.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t48.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_60.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t60.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t60.gif’: Not a directory
+++ cp enp_per_60.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t60.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t60.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_72.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t72.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t72.gif’: Not a directory
+++ cp enp_per_72.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t72.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t72.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_84.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t84.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t84.gif’: Not a directory
+++ cp enp_per_84.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t84.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t84.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_96.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t96.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t96.gif’: Not a directory
+++ cp enp_per_96.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t96.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t96.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_108.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t108.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t108.gif’: Not a directory
+++ cp enp_per_108.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t108.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t108.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_120.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t120.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t120.gif’: Not a directory
+++ cp enp_per_120.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t120.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t120.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_132.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t132.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t132.gif’: Not a directory
+++ cp enp_per_132.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t132.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t132.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_144.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t144.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t144.gif’: Not a directory
+++ cp enp_per_144.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t144.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t144.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_156.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t156.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t156.gif’: Not a directory
+++ cp enp_per_156.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t156.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t156.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_168.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t168.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t168.gif’: Not a directory
+++ cp enp_per_168.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t168.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t168.gif’: Not a directory
+++ for T in 12 24 36 48 60 72 84 96 108 120 132 144 156 168 180
+++ cp enp_wnd_180.gif /ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t180.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_wnd_2016111212_t180.gif’: Not a directory
+++ cp enp_per_180.gif /ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t180.gif
+cp: failed to access ‘/ocean/transfer/ww3_ncep/enp/enp_per_2016111212_t180.gif’: Not a directory
+++ rm wind_unform.ww3 enp.html g30.html wna.html 'J*' ice2016111206000 ice_unform.ww3 enp_per_0.gif enp_per_12.gif enp_per_24.gif enp_wnd_0.gif enp_wnd_12.gif enp_wnd_24.gif g30_per_0.gif g30_per_12.gif g30_per_24.gif g30_wnd_0.gif g30_wnd_12.gif g30_wnd_24.gif wna_per_0.gif wna_per_12.gif wna_per_24.gif wna_wnd_0.gif wna_wnd_12.gif wna_wnd_24.gif lpoly_lowres.asc
+rm: cannot remove ‘J*’: No such file or directory
+++ exit
